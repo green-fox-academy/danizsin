@@ -1,3 +1,4 @@
+export {}
 'use strict';
 
 let a: number = 3;
