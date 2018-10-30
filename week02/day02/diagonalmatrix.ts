@@ -23,5 +23,5 @@ for (let i: number = 0; i < colsnrows; i++) {
     }
     matrix.push(currArr);
 }
-matrix.map(e => console.log(e));
+matrix.map(e => console.log(e.toString().replace(/[,]+/g, " ")));
 
