@@ -10,8 +10,14 @@ stdin.addListener('data', function (d) {
     console.log('You are right! Congrats!');
     process.exit();
   } else if (counter > 0) {
-    console.log(`Fail! You have ${counter} more guesses!`);
-    --counter;
+      if (d > guessNum) {
+      console.log(`Fail! Too high! You have ${counter} more guesses!`);
+      --counter;
+      }
+      if (d < guessNum) {
+      console.log(`Fail! Too low! You have ${counter} more guesses!`);
+      --counter;
+      }
   } else {
     console.log('No more lives! Sorry!');
     process.exit();
