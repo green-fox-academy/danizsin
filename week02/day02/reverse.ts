@@ -7,15 +7,15 @@
 // -  Print the elements of the reversed `numList`
 
 let numList: number[] = [3, 4, 5, 6, 7];
-let newArray:number[] = [];
+let newArray: number[] = [];
 console.log(numList.reverse());
 
-function reverseArray(arr:number[]) {
-    
-    for (let i = arr.length - 1; i >= 0; i--) {
-        newArray.unshift(arr[i]);
-    }
-    return newArray;
+function reverseArray(arr: number[]) {
+
+	for (let i = arr.length - 1; i >= 0; i--) {
+		newArray.unshift(arr[i]);
+	}
+	return newArray;
 }
 reverseArray(numList);
 console.log(newArray);

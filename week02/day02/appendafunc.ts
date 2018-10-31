@@ -3,9 +3,9 @@
 //    appends an 'a' character to its end and returns with a string
 // -  Print the result of `appendAFunc(typo)`
 
-let typo:string= "Chinchill";
+let typo: string = 'Chinchill';
 
-function appendAFunc(val:string):string{
-    return val+"a";
+function appendAFunc(val: string): string {
+	return val + 'a';
 }
 console.log(appendAFunc(typo));

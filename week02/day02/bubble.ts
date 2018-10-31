@@ -3,13 +3,13 @@
 //  Make a second boolean parameter, if it's `true` sort that list descending
 
 function bubble(arr: number[]) {
-    return arr.sort(function (a, b) { return a - b });
+	return arr.sort(function (a, b) { return a - b });
 }
 
 function advancedBubble(arr: number[], descend = false) {
-    if (descend == false) {
-        return arr.sort(function (a, b) { return a - b });
-    } else return arr.sort(function (a, b) { return b - a });
+	if (descend === false) {
+		return arr.sort(function (a, b) { return a - b });
+	} else return arr.sort(function (a, b) { return b - a });
 
 }
 

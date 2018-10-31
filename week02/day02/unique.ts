@@ -3,13 +3,13 @@
 //  Returns a list of numbers where every number in the list occurs only once
 
 function unique(arr: number[]) {
-    let uniq: number[] = [];
-    arr.forEach(e => {
-        if (uniq.includes(e)===false) {
-            uniq.push(e);
-        }
-    })
-    return uniq;
+	let uniq: number[] = [];
+	arr.forEach(e => {
+		if (uniq.includes(e) === false) {
+			uniq.push(e);
+		}
+	})
+	return uniq;
 }
 
 //  Example

@@ -12,16 +12,16 @@
 // * size should depend on a variable
 // ** Relax, a matrix is just like an array
 
-let matrix = [];
+let matrix: any[] = [];
 let colsnrows: number = 10;
 for (let i: number = 0; i < colsnrows; i++) {
-    let currArr:number[]=[];
-    for(let k:number=colsnrows-1; k>=0; k--){
-        if(i==k){
-            currArr.push(5);
-        } else currArr.push(0);
-    }
-    matrix.push(currArr);
+	let currArr: number[] = [];
+	for (let k: number = colsnrows - 1; k >= 0; k--) {
+		if (i == k) {
+			currArr.push(5);
+		} else currArr.push(0);
+	}
+	matrix.push(currArr);
 }
-matrix.map(e => console.log(e.toString().replace(/[,]+/g, " ")));
+matrix.map(e => console.log(e.toString().replace(/[,]+/g, ' ')));
 
