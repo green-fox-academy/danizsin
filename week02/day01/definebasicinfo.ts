@@ -1,15 +1,15 @@
 'use strict';
 
-let myName:string = "Dani";
+let myName: string = 'Dani';
 console.log(myName);
 
-let myAge:number = 22;
+let myAge: number = 22;
 console.log(myAge);
 
-let myHeight:number = 1.75;
+let myHeight: number = 1.75;
 console.log(myHeight);
 
-let imMarried:boolean = false;
+let imMarried: boolean = false;
 console.log(imMarried);
 
 // Define several things as a variable, then print their values

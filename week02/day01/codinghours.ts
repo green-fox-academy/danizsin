@@ -10,7 +10,7 @@
 // Print the percentage of the coding hours in the semester if the average
 // work hours weekly is 52
 
-console.log(6*5*17);
+console.log(6 * 5 * 17);
 
-console.log(((6*5)/52)*100);
+console.log(((6 * 5) / 52) * 100);
 

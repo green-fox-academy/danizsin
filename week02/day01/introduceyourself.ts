@@ -11,7 +11,7 @@
 //  31
 //  1.87
 
-console.log("Daniel Zsin");
+console.log('Daniel Zsin');
 console.log(22);
 console.log(1.75);
 
