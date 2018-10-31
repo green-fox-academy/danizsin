@@ -1,5 +1,5 @@
 'use strict';
-
+export{}
 let lineCount: number = 4;
 
 // Write a program that draws a triangle like this:
