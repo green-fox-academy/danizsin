@@ -1,6 +1,6 @@
 'use strict';
 var guessNum = Math.floor(Math.random() * 100 + 1);
-console.log(guessNum);
+// console.log(guessNum);
 
 var counter = 4;
 console.log('Guess my number(1-100)! You have 5 guesses!');
