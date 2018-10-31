@@ -21,5 +21,5 @@ function armstrong(para) {
   } else {
     console.log(`${refNum} is not an Armstrong number!`);
     process.exit();
- }
+  }
 }
