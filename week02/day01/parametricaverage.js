@@ -6,23 +6,26 @@ exports.__esModule = true;
 // numbers like:
 //
 // Sum: 22, Average: 4.4
-console.log("please enter a number");
+console.log('please enter a number');
 var stdin = process.openStdin();
 var initNum = 0;
 var sum = 0;
 var counter = 0;
-stdin.addListener("data", function (d) {
+stdin.addListener('data', function (d) {
     if (counter == 0) {
         initNum = +d.toString().trim();
-        console.log("enter " + (initNum - counter) + " more numbers");
+        // console.log('enter ' + (initNum - counter) + ' more numbers');
+        console.log(`enter ${initNum-counter} more numbers`);
     }
     else if (counter < initNum) {
         sum += +d.toString().trim();
-        console.log("enter " + (initNum - counter) + " more numbers");
+        // console.log('enter ' + (initNum - counter) + ' more numbers');
+        console.log(`enter ${initNum-counter} more numbers`);
     }
     else if (counter === initNum) {
         sum += +d.toString().trim();
-        console.log("Sum: " + sum + ", Average: " + sum / initNum);
+        // console.log('Sum: ' + sum + ', Average: ' + sum / initNum);
+        console.log(`Sum: ${sum}, Average: ${sum/initNum}`);
         process.exit();
     }
     ++counter;
