@@ -18,10 +18,9 @@ const queue: any[] = [
 let canGo: any[] = [];
 
 function securityCheck(para: any[]) {
-  para.forEach((e, i) => {
-    if (e.guns > 0 && e.alcohol >= 0) {
+  para.forEach(e => {
+    if (e.guns > 0) {
       watchlist.push(e.name);
-      // para.splice(i,1);
     } else if (e.guns === 0 && e.alcohol > 0) {
       securityAlcoholLoot += e.alcohol;
       e.alcohol = 0;
@@ -33,7 +32,6 @@ function securityCheck(para: any[]) {
   console.log(canGo);
 }
 securityCheck(queue);
-
 
 // Queue of festivalgoers at entry
 // no. of alcohol units
