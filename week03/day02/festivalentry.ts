@@ -15,9 +15,10 @@ const queue: any[] = [
   { name: 'Joerg', alcohol: 20, guns: 0 }
 ];
 
-let canGo: any[] = [];
+
 
 function securityCheck(para: any[]) {
+  let canGo: any[] = [];
   para.forEach(e => {
     if (e.guns > 0) {
       watchlist.push(e.name);
@@ -29,9 +30,9 @@ function securityCheck(para: any[]) {
   });
   console.log(`Security alcohol: ${securityAlcoholLoot}`);
   console.log(`Cant go in: ${watchlist}`);
-  console.log(canGo);
+  return canGo;
 }
-securityCheck(queue);
+console.log(securityCheck(queue));
 
 // Queue of festivalgoers at entry
 // no. of alcohol units
