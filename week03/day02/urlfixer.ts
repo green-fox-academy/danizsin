@@ -4,6 +4,6 @@
 // Also, the URL is missing a crutial component, find out what it is and insert it too!
 
 let url: string = 'https//www.reddit.com/r/nevertellmethebots';
-url = url.replace('bots','odds');
-let newUrl :string= 'https:'+url.substring(5);
+url = url.replace('bots', 'odds');
+let newUrl: string = 'https:' + url.substring(5);
 console.log(newUrl);
