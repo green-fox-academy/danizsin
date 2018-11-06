@@ -6,8 +6,8 @@
 
 const numbers: number[] = [1, 2, 3, 4, 5, 6, 8];
 
-function containsSeven(para:number[]):string{
-  if(numbers.includes(7)){
+function containsSeven(para: number[]): string {
+  if (numbers.includes(7)) {
     return 'Hoorray';
   } else return 'Noooooo';
 }
