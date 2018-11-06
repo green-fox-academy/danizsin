@@ -27,9 +27,9 @@ console.log(howmanyCandies(students));
 
 function averageAge(par: any[]): number {
   let sumage: number = 0;
-  par.forEach(e=> {
-    if(e.candies<5){
-      sumage+=e.age;
+  par.forEach(e => {
+    if (e.candies < 5) {
+      sumage += e.age;
     }
   });
   return sumage;
