@@ -12,7 +12,7 @@ let words: string[] = ['What', 'I', 'do', 'create,', 'I', 'cannot', 'not', 'unde
 function quoteSwap(par: string[]): string {
   let i: number = par.indexOf('do');
   let j: number = par.indexOf('cannot');
-  let temp:string= par[par.indexOf('do')];
+  let temp: string = par[par.indexOf('do')];
   par.splice(i, 1, par[j]);
   par.splice(j, 1, temp);
   return par.join(' ');
