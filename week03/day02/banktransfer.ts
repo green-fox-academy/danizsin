@@ -25,7 +25,7 @@ function transferAmount(obj: any[], fromA: number, toA: number, amnt: number) {
     obj.forEach(e => {
       if (e.accountNumber === fromA) {
         // console.log('cica');
-        
+
         e.balance -= amnt;
       } else if (e.accountNumber === toA) {
         e.balance += amnt;
