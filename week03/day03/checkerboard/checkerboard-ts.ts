@@ -33,7 +33,7 @@ function drawChecker(x) {
 }
 document.getElementById('clickme').addEventListener('click', function () {
   drawChecker(document.getElementById('num').value);
-  document.getElementById('num').value='';
+  document.getElementById('num').value = '';
   document.getElementById('num').focus();
 
 });

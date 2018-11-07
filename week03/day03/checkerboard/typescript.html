@@ -1,25 +1,27 @@
-
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Checkerboard</title>
-    <style>
-      .main-canvas {
+
+<head>
+  <meta charset="utf-8">
+  <title>Checkerboard</title>
+  <style>
+    .main-canvas {
         margin: 20px;
         border: 1px solid black;
       }
     </style>
-  </head>
-  <body>
-    Enter a number (between 10 and 100 for nice checkerboard)
-    <input type="text" id="num">
-    <div style="width:100px; height:30px; background-color:red;color:white;cursor:pointer" id="clickme">click me</div>
-    <canvas width="600" height="400" class="main-canvas"></canvas>
-    <script type="text/typescript" src="checkerboard-ts.ts"></script>
+</head>
 
-    
-    <script src="https://rawgit.com/Microsoft/TypeScript/master/lib/typescriptServices.js"></script>
-    <script src="https://rawgit.com/basarat/typescript-script/master/transpiler.js"></script>
-  </body>
+<body>
+  Enter a number (between 10 and 100 for nice checkerboard)
+  <input type="text" id="num">
+  <div style="width:100px; height:30px; background-color:red;color:white;cursor:pointer" id="clickme">click me</div>
+  <canvas width="600" height="400" class="main-canvas"></canvas>
+  <script type="text/typescript" src="checkerboard-ts.ts"></script>
+
+
+  <script src="https://rawgit.com/Microsoft/TypeScript/master/lib/typescriptServices.js"></script>
+  <script src="https://rawgit.com/basarat/typescript-script/master/transpiler.js"></script>
+</body>
+
 </html>
