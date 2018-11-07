@@ -11,7 +11,7 @@ const ctx = canvas.getContext('2d');
 // Create a loop that fills the canvas with rainbow colored squares.
 let colors: string[] = ['violet', 'indigo', 'blue', 'green', 'yellow', 'orange', 'red'];
 
-function rainBow(x, y) {
+function rainBow(x: number, y: string) {
   ctx.fillStyle = y;
   ctx.fillRect(canvas.width / 2 - x / 2, canvas.height / 2 - x / 2, x, x);
 }
