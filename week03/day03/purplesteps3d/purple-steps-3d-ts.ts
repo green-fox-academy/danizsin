@@ -9,7 +9,7 @@ const ctx = canvas.getContext('2d');
 // Reproduce this:
 // [https://github.com/green-fox-academy/teaching-materials/blob/master/workshop/drawing/purple-steps-3d/r4.png]
 
-function purpleSq(x, y, z) {
+function purpleSq(x: number, y: number, z: number) {
   ctx.fillStyle = '#b145f3';
   ctx.fillRect(x, y, z, z);
   ctx.strokeStyle = 'black';
