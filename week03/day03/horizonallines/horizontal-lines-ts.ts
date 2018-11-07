@@ -15,10 +15,10 @@ function drawLine(x, y) {
   ctx.beginPath();
   ctx.strokeStyle = 'orange';
   ctx.moveTo(x, y);
-  ctx.lineTo(x, y+50);
+  ctx.lineTo(x, y + 50);
   ctx.stroke();
 }
 
 for (let i: number = 0; i <= 2; i++) {
-  drawLine(100+i*100, 100);
+  drawLine(100 + i * 100, 100);
 }

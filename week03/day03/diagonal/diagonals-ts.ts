@@ -10,13 +10,13 @@ const ctx = canvas.getContext('2d');
 // If it starts from the upper-left corner it should be green, otherwise it should be red.
 
 ctx.beginPath();
-ctx.strokeStyle='green';
-ctx.moveTo(0,0);
+ctx.strokeStyle = 'green';
+ctx.moveTo(0, 0);
 ctx.lineTo(canvas.width, canvas.height);
 ctx.stroke();
 
 ctx.beginPath();
-ctx.strokeStyle='red';
-ctx.moveTo(canvas.width,0);
+ctx.strokeStyle = 'red';
+ctx.moveTo(canvas.width, 0);
 ctx.lineTo(0, canvas.height);
 ctx.stroke();
