@@ -31,4 +31,9 @@ function drawChecker(x) {
     }
   }
 }
-drawChecker(50);
+document.getElementById('clickme').addEventListener('click', function () {
+  drawChecker(document.getElementById('num').value);
+  document.getElementById('num').value='';
+  document.getElementById('num').focus();
+
+});
