@@ -8,7 +8,7 @@ const ctx = canvas.getContext('2d');
 // Reproduce this:
 // [https://github.com/green-fox-academy/teaching-materials/blob/master/workshop/drawing/purple-steps/r3.png]
 
-function purpleSq(x, y) {
+function purpleSqu(x: number, y: number) {
   ctx.fillStyle = '#b145f3';
   ctx.fillRect(x, y, 12, 12);
   ctx.strokeStyle = 'black';
@@ -16,5 +16,5 @@ function purpleSq(x, y) {
 }
 
 for (let i: number = 1; i < 20; i++) {
-  purpleSq(12 * i, 12 * i);
+  purpleSqu(12 * i, 12 * i);
 }
