@@ -16,9 +16,9 @@ function purpleSq(x, y, z) {
   ctx.strokeRect(x, y, z, z);
 }
 
-let currPos:number[]=[12,12];
+let currPos: number[] = [12, 12];
 for (let i: number = 1; i < 7; i++) {
-  purpleSq(currPos[0],currPos[1], 12*i);
-  currPos[0]+=12*i;
-  currPos[1]+=12*i;
+  purpleSq(currPos[0], currPos[1], 12 * i);
+  currPos[0] += 12 * i;
+  currPos[1] += 12 * i;
 }
