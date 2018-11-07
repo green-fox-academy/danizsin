@@ -9,13 +9,36 @@
         margin: 20px;
         border: 1px solid black;
       }
+      #clickme{
+        width:100px;
+        height:40px;
+        background-color:rgb(84, 206, 27);
+        box-shadow: 0 7px rgb(41, 82, 31);
+        color:white;
+        text-shadow: 0px 0px 1px black,
+                     1px 0px 1px black,
+                     0px 1px 1px black,
+                     1px 1px 1px black;
+        cursor:pointer;
+        text-align: center;
+        line-height:40px;
+        font-size:26px;
+        margin-top:20px;
+        margin-left: 240px;
+        border-radius: 14px;
+      }
+      #clickme:active{
+        transform: translateY(4px);
+        background-color: rgb(70, 151, 33);
+        box-shadow: 0 3px rgb(25, 46, 20);
+      }
     </style>
 </head>
 
 <body>
   Enter a number (between 10 and 100 for nice checkerboard)
   <input type="text" id="num">
-  <div style="width:100px; height:30px; background-color:red;color:white;cursor:pointer" id="clickme">click me</div>
+  <div id="clickme">click me</div>
   <canvas width="600" height="400" class="main-canvas"></canvas>
   <script type="text/typescript" src="checkerboard-ts.ts"></script>
 
