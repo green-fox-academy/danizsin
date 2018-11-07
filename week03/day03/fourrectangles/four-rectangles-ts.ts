@@ -9,9 +9,9 @@ const ctx = canvas.getContext('2d');
 // Draw four different size and color rectangles.
 // Avoid code duplication.
 
-function fourSize(x, y, z) {
+function fourSize(x: number, y: number, z: number) {
   ctx.fillRect(x, y, z, z);
-  ctx.fillStyle = `rgb(${i * 25 + 100},${i * 35},${i * 55})`;
+  ctx.fillStyle = `rgb(${x},${x},${x - 100})`;
 }
 
 for (let i: number = 0; i < 4; i++) {

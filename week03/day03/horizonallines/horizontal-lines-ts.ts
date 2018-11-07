@@ -11,7 +11,7 @@ const ctx = canvas.getContext('2d');
 // and draws a 50 long horizontal line from that point.
 // draw 3 lines with that function. Use loop for that.
 
-function drawLine(x, y) {
+function drawLine(x: number, y: number) {
   ctx.beginPath();
   ctx.strokeStyle = 'orange';
   ctx.moveTo(x, y);

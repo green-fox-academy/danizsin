@@ -12,9 +12,9 @@ const ctx = canvas.getContext('2d');
 // Draw 3 squares with that function.
 // Avoid code duplication.
 
-function threecentSq(x) {
-  ctx.fillRect(canvas.width / 2 - x / 2, canvas.height / 2 - x / 2, x, x);
+function threecentSq(x: number) {
   ctx.fillStyle = `rgb(${x},100,100)`;
+  ctx.fillRect(canvas.width / 2 - x / 2, canvas.height / 2 - x / 2, x, x);
 }
 
 for (let i: number = 4; i > 1; i--) {

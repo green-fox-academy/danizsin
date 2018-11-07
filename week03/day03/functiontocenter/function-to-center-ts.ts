@@ -10,7 +10,7 @@ const ctx = canvas.getContext('2d');
 // and draws a line from that point to the center of the canvas.
 // Fill the canvas with lines from the edges, every 20 px, to the center.
 
-function drawlinees(x, y) {
+function drawlinees(x: number, y: number) {
   ctx.beginPath();
   ctx.moveTo(x, y);
   ctx.strokeStyle = "magenta";

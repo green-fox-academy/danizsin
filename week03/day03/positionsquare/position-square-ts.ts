@@ -12,7 +12,7 @@ const ctx = canvas.getContext('2d');
 // Draw 3 squares with that function.
 // Avoid code duplication.
 
-function threeSq(x, y) {
+function threeSq(x: number, y: number) {
   ctx.fillRect(x, y, 50, 50);
   ctx.fillStyle = 'black';
 }

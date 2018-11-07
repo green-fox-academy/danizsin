@@ -11,7 +11,7 @@ const ctx = canvas.getContext('2d');
 // and draws a line from that point to the center of the canvas
 // Draw 3 lines with that function. Use loop for that.
 
-function drawLines(x, y) {
+function drawLines(x: number, y: number) {
   ctx.beginPath();
   ctx.strokeStyle = 'magenta';
   ctx.moveTo(x, y);
