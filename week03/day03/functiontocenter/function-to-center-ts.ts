@@ -13,7 +13,7 @@ const ctx = canvas.getContext('2d');
 function drawlinees(x: number, y: number) {
   ctx.beginPath();
   ctx.moveTo(x, y);
-  ctx.strokeStyle = "magenta";
+  ctx.strokeStyle = 'darkslategray';
   ctx.lineTo(canvas.width / 2, canvas.height / 2);
   ctx.stroke();
 }
