@@ -12,11 +12,11 @@ const ctx = canvas.getContext('2d');
 // Draw 3 squares with that function.
 // Avoid code duplication.
 
-function fourSize(x, y) {
+function threeSq(x, y) {
   ctx.fillRect(x, y, 50, 50);
   ctx.fillStyle = 'black';
 }
 
 for (let i: number = 3; i < 6; i++) {
-  fourSize(50 * i, 50 * i);
+  threeSq(50 * i, 50 * i);
 }
