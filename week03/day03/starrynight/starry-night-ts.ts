@@ -17,9 +17,9 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);
 function drawStars(x: number, y: number) {
   ctx.beginPath();
   ctx.fillStyle = `rgba(255,255,255,${Math.random()})`;
-  ctx.fillRect(x, y, 10, 10);
+  ctx.fillRect(x, y, 1, 1);
 }
 
-for (let i: number = 0; i < 200; i++) {
+for (let i: number = 0; i < 1100; i++) {
   drawStars(Math.floor(Math.random() * (canvas.width - 10)), Math.floor(Math.random() * (canvas.height - 10)));
 }
