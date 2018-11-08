@@ -31,31 +31,3 @@ for (let j: number = 0; j < divnum; j++) {
     }
   }
 }
-
-// const divnum: number = 2;
-// let quadr: number = canvas.width / divnum;
-// let lineSpace: number = 20;
-// let y: number = lineSpace / divnum;
-
-// function drawNet(num: number, row:number, cols:number) {
-//   ctx.beginPath();
-//   ctx.strokeStyle = 'purple';
-//   ctx.moveTo(quadr, quadr - num);
-//   ctx.lineTo(quadr - num, 0);
-//   ctx.closePath();
-//   ctx.stroke();
-
-//   ctx.beginPath();
-//   ctx.strokeStyle = 'lightgreen';
-//   ctx.moveTo(quadr - num, quadr);
-//   ctx.lineTo(0, quadr - num);
-//   ctx.closePath();
-//   ctx.stroke();
-// }
-// for (let j: number = 0; j < divnum; j++) {
-//   for (let k: number = 0; k < divnum; k++) {
-//     for (let i: number = y; i <= quadr - y; i += y) {
-//       drawNet(i, k, j);
-//     }
-//   }
-// }
