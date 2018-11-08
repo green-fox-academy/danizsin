@@ -25,44 +25,17 @@ function makeTable(k: number) {
 
 let clickbutton: any = document.getElementById('clickme');
 let inputval: any = document.getElementById('num');
+const regex: any = /^[0-9]+$/;
 
 clickbutton.addEventListener('click', function () {
-  if (inputval.value.trim().length > 0) {
+  if (inputval.value.trim().length > 0 && regex.test(inputval.value.trim())) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    makeTable(+inputval.value);
+    makeTable(canvas.width / inputval.value);
     inputval.value = '';
     inputval.focus();
-  } else alert('Type a number, don\'t leave it empty!');
+  } else {
+    inputval.value = '';
+    inputval.focus();
+    alert('Type a number, don\'t leave it empty!');
+  }
 });
-
-
-
-
-// function tralala(x) {
-//   for (let j: number = 0; j < canvas.height / x; j++) {
-//     for (let i: number = 0; i < canvas.width / x; i++) {
-//       if (j % 2 === 0) {
-//         if (i % 2 === 0) {
-
-//         } else {
-//           ctx.fillStyle = 'white';
-//           ctx.fillRect(i * x, j * x, x, x);
-//         }
-//       } else {
-//         if (i % 2 === 0) {
-//           ctx.fillStyle = 'white';
-//           ctx.fillRect(i * x, j * x, x, x);
-//         } else {
-//           ctx.fillStyle = 'black';
-//           ctx.fillRect(i * x, j * x, x, x);
-//         }
-//       }
-//     }
-//   }
-// }
-// document.getElementById('clickme').addEventListener('click', function () {
-//   tralala(document.getElementById('num').value);
-//   document.getElementById('num').value = '';
-//   document.getElementById('num').focus();
-
-// });
