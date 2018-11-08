@@ -4,21 +4,22 @@
 <head>
   <meta charset="utf-8">
   <title>Checkerboard</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
   <style>
     .main-canvas {
         margin: 20px;
         border: 1px solid black;
       }
       #clickme{
-        width:100px;
+        width:110px;
         height:40px;
-        background-color:rgb(84, 206, 27);
-        box-shadow: 0 7px rgb(41, 82, 31);
+        background-color:rgb(48, 167, 155);
+        box-shadow: 0 7px rgb(37, 39, 39);
         color:white;
-        text-shadow: 0px 0px 1px black,
+        /* text-shadow: 0px 0px 1px black,
                      1px 0px 1px black,
                      0px 1px 1px black,
-                     1px 1px 1px black;
+                     1px 1px 1px black; */
         cursor:pointer;
         text-align: center;
         line-height:40px;
@@ -26,19 +27,29 @@
         margin-top:20px;
         margin-left: 240px;
         border-radius: 14px;
+        font-weight: bold;
+        user-select: none;
+        -moz-user-select: none;
       }
       #clickme:active{
         transform: translateY(4px);
-        background-color: rgb(70, 151, 33);
-        box-shadow: 0 3px rgb(25, 46, 20);
+        background-color:rgb(33, 88, 83);
+        box-shadow: 0 3px rgb(37, 39, 39);
+      }
+      i{
+        font-size:24px;
+        margin: 0 6px;
+      }
+      b{
+        font-size: 24px;
       }
     </style>
 </head>
 
 <body>
-  Enter a number (between 10 and 100 for nice checkerboard)
+  <b>Enter a number (possibly between 1 and 200)</b><i class="fas fa-long-arrow-alt-right"></i>
   <input type="text" id="num">
-  <div id="clickme">click me</div>
+  <div id="clickme"><i class="fas fa-play"></i>Play</div>
   <canvas width="600" height="400" class="main-canvas"></canvas>
   <script type="text/typescript" src="checkerboard-ts.ts"></script>
 
