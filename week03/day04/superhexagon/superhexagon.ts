@@ -4,19 +4,18 @@ const canvas = document.querySelector('.main-canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d');
 
 
-const startingX: number = 80;
-const canvasHalf: number = canvas.width / 2.6;
-const side: number = 20;
+const startingX: number = 62;
+const canvasHalf: number = canvas.width / 3;
+const side: number = 25;
 
 const sideSq: number = side ** 2;
-const smallDiag = side * Math.sqrt(3);
-const smallDiagpertwo = smallDiag / 2;
-const offSet = sideSq - smallDiagpertwo ** 2;
-const rootOffSet = Math.sqrt(offSet);
-const sidePlusRootOffSet = side + rootOffSet;
+const smallDiag: number = side * Math.sqrt(3);
+const smallDiagpertwo: number = smallDiag / 2;
+const offSet: number = sideSq - smallDiagpertwo ** 2;
+const rootOffSet: number = Math.sqrt(offSet);
+const sidePlusRootOffSet: number = side + rootOffSet;
 
 for (let i: number = 0; i < 7; i++) {
-  let g = 7;
   let h: number = 2;
   for (let j: number = 0; j < i + 4; j++) {
     if (i < 4) {
@@ -32,17 +31,19 @@ for (let i: number = 0; i < 7; i++) {
   }
 }
 
-function connectTheHexagon(para: any[]) {
-  para.forEach((e, i, a) => {
-    if (i < para.length - 1) {
+function connectTheHexagon(hexArr: any[]): void {
+  hexArr.forEach((e, i, a) => {
+    if (i < hexArr.length - 1) {
       ctx.beginPath();
-      ctx.strokeStyle = "purple";
+      ctx.lineWidth = 3;
+      ctx.strokeStyle = 'blue';
       ctx.moveTo(a[i][0], a[i][1]);
       ctx.lineTo(a[i + 1][0], a[i + 1][1]);
       ctx.stroke();
-    } else if (i === para.length - 1) {
+    } else if (i === hexArr.length - 1) {
       ctx.beginPath();
-      ctx.strokeStyle = "purple";
+      ctx.lineWidth = 3;
+      ctx.strokeStyle = 'blue';
       ctx.moveTo(a[i][0], a[i][1]);
       ctx.lineTo(a[0][0], a[0][1]);
       ctx.stroke();
@@ -50,7 +51,7 @@ function connectTheHexagon(para: any[]) {
   });
 }
 
-function prepareHexArray(x, y) {
+function prepareHexArray(x: number, y: number): any[] {
 
   const hexagon: any[] = [[x, y], [x + side / 2, y - (side * Math.sqrt(3)) / 2], [x + (side + side / 2), y - (side * Math.sqrt(3)) / 2], [x + (side * 2), y], [x + (side + side / 2), y + (side * Math.sqrt(3)) / 2], [x + (side / 2), y + (side * Math.sqrt(3)) / 2]];
   return hexagon;
