@@ -11,7 +11,6 @@ function readFromFile(fileName: string): string {
     return fs.readFileSync(fileName, 'utf-8');
   }
   catch (e) {
-    console.log(`couldnt find this file: ${fileName}`);
     return null;
   }
 }
@@ -35,6 +34,8 @@ function ticTacResult(fileName: string): string {
       }
       return 'Draw';
     }
+  } else {
+    return `couldnt find this file: ${fileName}`;
   }
 }
 
