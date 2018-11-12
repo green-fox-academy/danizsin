@@ -15,7 +15,7 @@ function readFromFile(fileName: string): string {
   }
 }
 
-function uniqueAddresses(fileName: string):any {
+function uniqueAddresses(fileName: string): any {
   const myFile: string = readFromFile(fileName);
   if (myFile !== null) {
     let uniqueIPs: number[] = [];
@@ -32,4 +32,24 @@ function uniqueAddresses(fileName: string):any {
 
 }
 
+function getGetPostRatio(fileName: string): any {
+  const myFile: string = readFromFile(fileName);
+  if (myFile !== null) {
+    const myFileInArray: any[] = myFile.split('\r\n');
+    let sumPost: number = 0;
+    let sumGet: number = 0;
+    myFileInArray.forEach(e => {
+      e.split(' ').forEach((elem, ind, arr) => {
+        if (arr[11] === 'POST') {
+          sumPost += 1;
+        } else if (arr[11] === 'GET') {
+          sumGet += 1;
+        }
+      });
+    });
+    return `GET/POST ratio: ${sumGet / sumPost}`;
+  }
+}
+
 console.log(uniqueAddresses('log.txt'));
+console.log(getGetPostRatio('log.txt'));
