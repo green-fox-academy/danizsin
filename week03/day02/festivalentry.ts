@@ -1,4 +1,3 @@
-
 'use strict';
 
 const watchlist: string[] = [];
@@ -17,7 +16,7 @@ const queue: any[] = [
 
 
 
-function securityCheck(para: any[]) {
+function securityCheck(para: any[]): any[] {
   let canGo: any[] = [];
   para.forEach(e => {
     if (e.guns > 0) {
@@ -26,12 +25,15 @@ function securityCheck(para: any[]) {
       securityAlcoholLoot += e.alcohol;
       e.alcohol = 0;
       canGo.push(e);
-    } else canGo.push(e);
+    } else {
+      canGo.push(e);
+    }
   });
   console.log(`Security alcohol: ${securityAlcoholLoot}`);
   console.log(`Cant go in: ${watchlist}`);
   return canGo;
 }
+
 console.log(securityCheck(queue));
 
 // Queue of festivalgoers at entry

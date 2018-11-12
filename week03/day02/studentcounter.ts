@@ -1,4 +1,3 @@
-
 'use strict';
 
 const students: any[] = [
@@ -7,7 +6,7 @@ const students: any[] = [
   { name: 'Mark', age: 12, candies: 5 },
   { name: 'Peter', age: 7, candies: 3 },
   { name: 'Olaf', age: 12, candies: 7 },
-  { name: 'George', age: 10, candies: 1 }
+  { name: 'George', age: 10, candies: 1 },
 ];
 
 // create a function that takes a list of students and logs: 
@@ -16,22 +15,24 @@ const students: any[] = [
 // create a function that takes a list of students and logs:
 // - Sum of the age of people who have lass than 5 candies
 
-function howmanyCandies(par: any[]): number {
+function howManyCandies(par: any[]): number {
   let sum: number = 0;
   par.forEach(e => {
     sum += e.candies;
   });
   return sum;
 }
-console.log(howmanyCandies(students));
+
+console.log(howManyCandies(students));
 
 function averageAge(par: any[]): number {
-  let sumage: number = 0;
+  let sumAge: number = 0;
   par.forEach(e => {
     if (e.candies < 5) {
-      sumage += e.age;
+      sumAge += e.age;
     }
   });
-  return sumage;
+  return sumAge;
 }
+
 console.log(averageAge(students));
