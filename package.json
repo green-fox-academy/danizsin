@@ -1,0 +1,22 @@
+{
+  "name": "danizsin",
+  "version": "1.0.0",
+  "description": "[Hello World repository](https://github.com/danizsin/hello-world)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/green-fox-academy/danizsin.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/green-fox-academy/danizsin/issues"
+  },
+  "homepage": "https://github.com/green-fox-academy/danizsin#readme",
+  "dependencies": {
+    "@types/node": "^10.12.5"
+  }
+}
