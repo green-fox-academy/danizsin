@@ -1,4 +1,3 @@
-
 'use strict';
 
 const canvas = document.querySelector('.main-canvas') as HTMLCanvasElement;
@@ -9,11 +8,11 @@ const ctx = canvas.getContext('2d');
 // Fill the canvas with a checkerboard pattern.
 
 
-function drawChecker(x: number, y: number, z: number) {
+function drawChecker(x: number, y: number, z: number): void {
   ctx.fillRect(x, y, z, z);
 }
 
-function makeTable(k: number) {
+function makeTable(k: number): void {
   for (let j: number = 0; j < canvas.height / k; j++) {
     for (let i: number = 0; i < canvas.width / k; i++) {
       if ((i + j) % 2 === 0) {
