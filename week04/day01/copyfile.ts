@@ -5,21 +5,24 @@
 export { };
 const fs = require('fs');
 
-function readFromFile(fileName: string): string {
+function readFromFile(fileName: string): any {
   try {
     return fs.readFileSync(fileName, 'utf-8');
   }
   catch (e) {
-    console.log(`couldnt find this file: ${fileName}`);
+    // console.log(`couldnt find this file: ${fileName}`);
     return null;
   }
 }
 
-function copyContent(fromFile: string, toFile: string): void {
-  const myFile: string = readFromFile(fromFile);
-  if (myFile !== null) {
+function copyContent(fromFile: string, toFile: string): boolean {
+  const myFile: any = readFromFile(fromFile);
+  if (myFile !==null) {
     fs.appendFileSync(toFile, myFile);
+    return true;
+  } else {
+    return false;
   }
 }
 
-copyContent('myfile.txt', 'newfile.txt');
+console.log(copyContent('my-file.txt', 'newfile.txt'));
