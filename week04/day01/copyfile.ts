@@ -15,7 +15,7 @@ function readFromFile(fileName: string): string {
   }
 }
 
-function copyContent(fromFile: string, toFile: string) {
+function copyContent(fromFile: string, toFile: string): void {
   const myFile: string = readFromFile(fromFile);
   if (myFile !== null) {
     fs.appendFileSync(toFile, myFile);
