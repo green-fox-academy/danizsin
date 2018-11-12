@@ -27,9 +27,9 @@ function ticTacResult(fileName: string): string {
     for (let i: number = 0; i < charsInArray.length; i++) {
       for (let j: number = 0; j < charsInArray[i].length; j++) {
         if ((charsInArray[i][j] === charsInArray[i][j + 1] && charsInArray[i][j] === charsInArray[i][j + 2]) ||
-        (charsInArray[i][j] === charsInArray[i + 1][j] && charsInArray[i][j] === charsInArray[i + 2][j]) ||
-        (charsInArray[i][j] === charsInArray[i + 1][j + 1] && charsInArray[i][j] === charsInArray[i + 2][j + 2]) ||
-        (charsInArray[i][j + 2] === charsInArray[i + 1][j + 1] && charsInArray[i][j + 2] === charsInArray[i + 2][j])) {
+          (charsInArray[i][j] === charsInArray[i + 1][j] && charsInArray[i][j] === charsInArray[i + 2][j]) ||
+          (charsInArray[i][j] === charsInArray[i + 1][j + 1] && charsInArray[i][j] === charsInArray[i + 2][j + 2]) ||
+          (charsInArray[i][j + 2] === charsInArray[i + 1][j + 1] && charsInArray[i][j + 2] === charsInArray[i + 2][j])) {
           return charsInArray[i][j];
         }
       }
