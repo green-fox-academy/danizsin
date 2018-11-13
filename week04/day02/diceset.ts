@@ -49,15 +49,3 @@ while (!diceSet.dices.every(e => e === 6)) {
   }
 }
 diceSet.getCurrent();
-  // diceSet.roll();
-  // diceSet.getCurrent();
-  // console.log("------------------");
-  // diceSet.reroll();
-  // diceSet.getCurrent();
-  // console.log("------------------");
-  // diceSet.getCurrent(5);
-  // diceSet.reroll();
-  // diceSet.getCurrent();
-  // console.log("------------------");
-  // diceSet.reroll(4);
-  // diceSet.getCurrent();
