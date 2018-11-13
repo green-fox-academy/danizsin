@@ -3,7 +3,7 @@ import { Animal } from "./animaltask";
 
 class Farm {
   listofAnimals: Animal[] = [];
-  slots: number = 4;
+  slots: number = 6;
 
   breed(newAnimal: Animal): void {
     if (this.listofAnimals.length < this.slots) {
@@ -13,11 +13,10 @@ class Farm {
 
   slaughter(): Animal[] {
     let minArray: number[] = [];
-    let minVal: number = 0;
     this.listofAnimals.forEach(e => {
       minArray.push(e.hunger);
     });
-    minVal = Math.min(...minArray);
+    let minVal: number = Math.min(...minArray);
     this.listofAnimals.map((e, i, a) => {
       if (e.hunger === minVal) {
         a.splice(i, 1);
