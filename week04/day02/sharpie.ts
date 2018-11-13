@@ -1,5 +1,4 @@
 'use strict';
-export { };
 
 class Sharpie {
   color: string;
@@ -20,3 +19,5 @@ class Sharpie {
 let sharpie1 = new Sharpie('blue', 200);
 
 console.log(sharpie1.use());
+
+export { Sharpie };
