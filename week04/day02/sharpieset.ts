@@ -1,5 +1,5 @@
 'use strict';
-import { Sharpie } from "./sharpie";
+import { Sharpie } from "./sharpietask";
 
 
 class SharpieSet {
@@ -24,4 +24,14 @@ class SharpieSet {
     });
     return onlyUsable;
   }
+  addSharpie(newSharpie: Sharpie) {
+    this.sharpies.push(newSharpie);
+  }
 }
+let sharpieSet1 = new SharpieSet();
+sharpieSet1.addSharpie(new Sharpie('blue', 200));
+sharpieSet1.addSharpie(new Sharpie('red', 200));
+sharpieSet1.addSharpie(new Sharpie('black', 200));
+sharpieSet1.addSharpie(new Sharpie('yellow', 200, 0));
+console.log(sharpieSet1.countUsable());
+console.log(sharpieSet1.removeThrash());
