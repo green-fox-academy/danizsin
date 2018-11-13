@@ -28,6 +28,6 @@ let wildPokemon: Pokemon = new Pokemon('Ponyta', 'fire', 'grass');
 
 pokemonOfAsh.forEach(e => {
   if (e.isEffectiveAgainst(wildPokemon)) {
-    console.log(e.name);
+    console.log(`I choose you: ${e.name}`);
   }
 });
