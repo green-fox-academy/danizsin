@@ -1,5 +1,4 @@
 'use strict';
-export { };
 
 class Animal {
   hunger: number;
@@ -26,3 +25,5 @@ class Animal {
 let anim1 = new Animal();
 
 console.log(anim1.play());
+
+export { Animal };
