@@ -7,20 +7,20 @@ export class Pirate {
   replyIfDrunk: string = 'Pour me anudder!'
   replyIfKo: string = 'Arghh, I\'ma Pirate. How d\'ya d\'ink its goin?';
   isDead: boolean = false;
-  constructor(name: string) {
+  constructor(name: string = 'piratename') {
     Pirate.idCounter++;
-    this.name = name;
     this.id = Pirate.idCounter;
+    this.name = name + this.id;
   }
 
   drinkSomeRum(): void {
     if (this.isDead) {
-      console.log('he\'s dead. cant drink anymore');
-    } else if (this.isDrunk < 10) {
+      // console.log(`${this.name} passed away, cant drink anymore`);
+    } else if (this.isDrunk < 14) {
       this.isDrunk += 1;
-    } else if (this.isDrunk >= 10) {
+    } else if (this.isDrunk >= 14) {
       this.die();
-      console.log('he\'s dead. cant drink anymore');
+      // console.log(`${this.name} passed away, cant drink anymore`);
     }
   }
 
