@@ -7,32 +7,47 @@ export class Ship {
   crew: Pirate[][] = [];
   captain: Pirate;
   captainDrunkness: number;
+
   constructor() {
     Ship.idCounter += 1;
     this.id = Ship.idCounter;
   }
 
+  //        PREPARES CREW TO BE INITIALIZED TO THE FILLSHIP METHOD
+  initCrew(): Pirate[] {
+    const randNumForCrewMembers: number = Math.floor(Math.random() * 25);
+    let initCrewArray: Pirate[] = [];
+    for (let i: number = 0; i < randNumForCrewMembers; i++) {
+      initCrewArray.push(new Pirate());
+    }
+    return initCrewArray;
+  }
+
+  //        FILLS THE SHIP WITH CREW
   fillship(addCrew: Pirate[]): void {
     const gonnaBeCaptain: number = Math.floor(Math.random() * addCrew.length);
     let heIsTheCaptain: Pirate = addCrew.splice(gonnaBeCaptain, 1)[0];
     this.captain = heIsTheCaptain;
     this.crew.push(addCrew);
-    this.crew.forEach(e => {
-      e.forEach(elem => {
-        // console.log(`${elem.name} is ready for duty!!!`);
-      });
-    });
-    // console.log(`${this.captain.name} is the captain of the ship!!!\r\n\r\n`);
+    //   this.crew.forEach(e => {
+    //     e.forEach(elem => {
+    //       // console.log(`${elem.name} is ready for duty!!!`);
+    //     });
+    //   });
+    //   // console.log(`${this.captain.name} is the captain of the ship!!!\r\n\r\n`);
   }
 
+  //      RETURNS CAPTAINS DRUNK LEVEL
   captainsDrunkLevel(): number {
     return this.captain.isDrunk;
   }
 
+  //      RETURNS CAPTAINS STATE
   isCaptaisDead(): boolean {
     return this.captain.isDead;
   }
 
+  //      RETURNS NUMBER OF ALIVE PIRATES ON BOARD
   numberOfAlivePirates(): number {
     let countAlives: number = 0;
     this.crew.forEach(e => {
@@ -45,6 +60,7 @@ export class Ship {
     return countAlives;
   }
 
+  //      CREATES A BATTLE BETWEEN TWO SHIPS
   battle(againstThisShip: Ship): boolean {
     const ownBattleScore: number = this.numberOfAlivePirates() - this.captainsDrunkLevel();
     console.log(ownBattleScore);
