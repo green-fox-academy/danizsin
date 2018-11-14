@@ -7,6 +7,7 @@ export class Pirate {
   replyIfDrunk: string = 'Pour me anudder!'
   replyIfKo: string = 'Arghh, I\'ma Pirate. How d\'ya d\'ink its goin?';
   isDead: boolean = false;
+
   constructor(name: string = 'piratename') {
     Pirate.idCounter++;
     this.id = Pirate.idCounter;
