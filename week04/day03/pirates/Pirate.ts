@@ -13,7 +13,7 @@ export class Pirate {
     this.id = Pirate.idCounter;
   }
 
-  drinkSomeRum() {
+  drinkSomeRum(): void {
     if (this.isDead) {
       console.log('he\'s dead. cant drink anymore');
     } else if (this.isDrunk < 10) {
@@ -24,7 +24,7 @@ export class Pirate {
     }
   }
 
-  howsItGoingMate() {
+  howsItGoingMate(): void {
     if (this.isDrunk < 5) {
       console.log(this.replyIfDrunk);
     } else {
@@ -34,11 +34,11 @@ export class Pirate {
     }
   }
 
-  die() {
+  die(): void {
     this.isDead = true;
   }
 
-  brawl(fightAgainst: Pirate) {
+  brawl(fightAgainst: Pirate): void {
     if (this.isDead === false && fightAgainst.isDead === false) {
       const whoWins = Math.floor(Math.random() * 100);
       console.log(whoWins);
