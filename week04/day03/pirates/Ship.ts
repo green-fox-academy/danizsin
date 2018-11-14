@@ -2,20 +2,19 @@ import { Pirate } from "./Pirate";
 
 export class Ship {
 
-  static idCounter: number = 0;
-  id: number;
+  static shipIdCounter: number = 0;
+  shipId: number;
   crew: Pirate[][] = [];
   captain: Pirate;
-  captainDrunkness: number;
 
   constructor() {
-    Ship.idCounter += 1;
-    this.id = Ship.idCounter;
+    Ship.shipIdCounter += 1;
+    this.shipId = Ship.shipIdCounter;
   }
 
   //        PREPARES CREW TO BE INITIALIZED TO THE FILLSHIP METHOD
   initCrew(): Pirate[] {
-    const randNumForCrewMembers: number = Math.floor(Math.random() * 25);
+    const randNumForCrewMembers: number = Math.floor(Math.random() * 25)+2;
     let initCrewArray: Pirate[] = [];
     for (let i: number = 0; i < randNumForCrewMembers; i++) {
       initCrewArray.push(new Pirate());
@@ -25,16 +24,10 @@ export class Ship {
 
   //        FILLS THE SHIP WITH CREW
   fillship(addCrew: Pirate[]): void {
-    const gonnaBeCaptain: number = Math.floor(Math.random() * addCrew.length);
+    let gonnaBeCaptain: number = Math.floor(Math.random() * addCrew.length);
     let heIsTheCaptain: Pirate = addCrew.splice(gonnaBeCaptain, 1)[0];
     this.captain = heIsTheCaptain;
     this.crew.push(addCrew);
-    //   this.crew.forEach(e => {
-    //     e.forEach(elem => {
-    //       // console.log(`${elem.name} is ready for duty!!!`);
-    //     });
-    //   });
-    //   // console.log(`${this.captain.name} is the captain of the ship!!!\r\n\r\n`);
   }
 
   //      RETURNS CAPTAINS DRUNK LEVEL
@@ -43,7 +36,7 @@ export class Ship {
   }
 
   //      RETURNS CAPTAINS STATE
-  isCaptaisDead(): boolean {
+  isCaptainDead(): boolean {
     return this.captain.isDead;
   }
 
@@ -63,11 +56,9 @@ export class Ship {
   //      CREATES A BATTLE BETWEEN TWO SHIPS
   battle(againstThisShip: Ship): boolean {
     const ownBattleScore: number = this.numberOfAlivePirates() - this.captainsDrunkLevel();
-    console.log(ownBattleScore);
     const enemyBattleScore: number = againstThisShip.numberOfAlivePirates() - againstThisShip.captainsDrunkLevel();
-    console.log(enemyBattleScore);
-    const randNumOfRums: number = Math.floor(Math.random() * 7);
-    const randNumOfDeaths: number = Math.floor(Math.random() * 4);
+    const randNumOfRums: number = Math.floor(Math.random() * 3);
+    const randNumOfDeaths: number = Math.floor(Math.random() * 5)+3;
     if (ownBattleScore > enemyBattleScore) {
       this.crew[0].forEach(elem => {
         for (let i: number = 0; i < randNumOfRums; i++) {
@@ -83,7 +74,7 @@ export class Ship {
             e.die();
           }
         });
-      } else {
+      } else if(againstThisShip.numberOfAlivePirates() <= randNumOfDeaths){
         againstThisShip.crew[0].forEach(e => {
           for (let g: number = 0; g < againstThisShip.numberOfAlivePirates(); g++) {
             e.die();
@@ -105,7 +96,7 @@ export class Ship {
             e.die();
           }
         });
-      } else {
+      } else if (this.numberOfAlivePirates() <= randNumOfDeaths) {
         this.crew[0].forEach(e => {
           for (let g: number = 0; g < this.numberOfAlivePirates(); g++) {
             e.die();
