@@ -2,8 +2,11 @@
 
 const canvas = document.querySelector('.main-canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d');
+var grd = ctx.createLinearGradient(0, 0, 0, 460);
+grd.addColorStop(0, 'rgba(27, 49, 95, 0.918)');
+grd.addColorStop(1, 'rgb(117, 237, 253)');
 
-ctx.fillStyle = 'blue';
+ctx.fillStyle = 'rgba(27, 49, 95, 0.918)';
 ctx.fillRect(0, 0, 600, 600);
 
 function drawTrianglesinTrianglesFractal(x: number, y: number, size: number, timesRepeat: number) {
