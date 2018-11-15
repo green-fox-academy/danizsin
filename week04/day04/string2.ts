@@ -2,12 +2,12 @@
 export { };
 const baseString: string = 'x x x x x x x x erfre fre f ererf  x x x erfx x xrerx re';
 
-function changeAllXToY(convertThis: string) {
+function removeAllX(convertThis: string) {
   let newStringWithoutX: string = convertThis;
   if (convertThis.indexOf('x') === -1) {
     return newStringWithoutX;
   }
-  return changeAllXToY(convertThis.replace('x', ''));
+  return removeAllX(convertThis.replace('x', ''));
 }
 
-console.log(changeAllXToY(baseString));
+console.log(removeAllX(baseString));
