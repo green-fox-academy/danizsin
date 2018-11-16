@@ -2,7 +2,6 @@
 
 const canvas = document.querySelector('.main-canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d');
-let gradient = ctx.createLinearGradient(0, 0, 0, 600);
 
 ctx.fillStyle = 'black';
 ctx.fillRect(0, 0, 600, 600);
