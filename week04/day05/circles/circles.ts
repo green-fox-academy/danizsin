@@ -11,7 +11,7 @@ function drawCircles(x: number, y: number, size: number, repeat: number) {
   if (repeat > 1) {
     drawCircles(x - size / 4.5, y + size / 9, size / 2, repeat - 1);
     drawCircles(x + size / 4.5, y + size / 9, size / 2, repeat - 1);
-    drawCircles(x, y - size / 4, size / 2, repeat - 1);     // GOOD
+    drawCircles(x, y - size / 4, size / 2, repeat - 1);
   } else {
     return;
   }
