@@ -1,6 +1,6 @@
 export class Plant {
-  private color: string;
-  private waterLevel: number;
+  protected color: string;
+  protected waterLevel: number;
   constructor(color: string) {
     this.waterLevel = 0;
     this.color = color;
