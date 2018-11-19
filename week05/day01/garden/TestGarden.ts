@@ -13,18 +13,18 @@ myGarden.addPlant(orangeTree);
 myGarden.addPlant(purpleTree);
 
 
-myGarden.crew.forEach(e => {
+myGarden.getCrew().forEach(e => {
   console.log(e.getState());
 });
 
 myGarden.waterGarden(40);
 
-myGarden.crew.forEach(e => {
+myGarden.getCrew().forEach(e => {
   console.log(e.getState());
 });
 
 myGarden.waterGarden(70);
 
-myGarden.crew.forEach(e => {
+myGarden.getCrew().forEach(e => {
   console.log(e.getState());
 });
