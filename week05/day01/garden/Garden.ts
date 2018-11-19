@@ -1,13 +1,17 @@
 import { Plant } from "./Plant";
 
 export class Garden {
-  crew: Plant[];
+  protected crew: Plant[];
   constructor() {
     this.crew = [];
   }
 
   addPlant(initPlant: Plant): void {
     this.crew.push(initPlant);
+  }
+
+  getCrew() {
+    return this.crew;
   }
 
   plantsNeedingWater(): number {
