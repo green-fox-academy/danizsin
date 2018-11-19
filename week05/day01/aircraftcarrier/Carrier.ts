@@ -139,10 +139,10 @@ export class Carrier {
         return;
       }
     } else {
-      console.log('Under construction');
-      //          NOT YET WORKING
-      // console.log(`Both aircraft carriers stay alive after one turn! Attacker carrier healthpoints: ${this.healthPoint - enemyCarrier.crewTotalDamage()}, Enemy carrier healthpoints: ${enemyCarrier.healthPoint - this.crewTotalDamage()}! Next turn!`);
-      // this.fight(enemyCarrier);
+      this.healthPoint -= enemyCarrier.crewTotalDamage();
+      enemyCarrier.healthPoint -= this.crewTotalDamage();
+      console.log(`Both aircraft carriers stayed alive after one turn! Attacker carrier healthpoints: ${this.healthPoint - enemyCarrier.crewTotalDamage()}, Enemy carrier healthpoints: ${enemyCarrier.healthPoint - this.crewTotalDamage()}! Next turn!`);
+      this.fight(enemyCarrier);
     }
   }
 }
