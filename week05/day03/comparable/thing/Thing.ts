@@ -1,6 +1,7 @@
 import { Comparable } from "./Comparable";
+import { Printable } from "../../printallfields/printAllFields";
 
-class Thing implements Comparable {
+class Thing implements Comparable, Printable {
   private _completed: boolean;
   private _name: string;
 
@@ -29,6 +30,10 @@ class Thing implements Comparable {
     }
     return 0;
   }
+
+  printAllFields() {
+    return Object.keys(this).join(', ');
+  }
 }
 let newArray: Thing[] = [];
 let thing1 = new Thing('kefe');
@@ -46,5 +51,10 @@ newArray.sort(function (a: Thing, b: Thing): number {
   return a.compareTo(b);
 });
 console.log(newArray);
+
+console.log('------------------\r\n');
+console.log(thing1.printAllFields());
+
+
 
 
