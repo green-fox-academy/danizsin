@@ -23,6 +23,12 @@ let dominoes = initializeDominoes();
 
 dominoes.sort(function (a: Domino, b: Domino): number {
 	return a.compareTo(b);
+
 });
 
 print(dominoes);
+
+console.log('------------------\r\n');
+
+let dominooo = new Domino(5, 6);
+console.log(dominooo.printAllFields());
