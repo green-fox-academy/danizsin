@@ -1,6 +1,6 @@
 import { test } from 'tape';
 
-function countLetters(countInThis: string) {
+function countLetters(countInThis: string): any {
   let dictionary: any = {};
   countInThis.split('').forEach(e => {
     if (e != ' ') {
