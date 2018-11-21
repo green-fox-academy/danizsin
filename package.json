@@ -18,5 +18,8 @@
   "homepage": "https://github.com/green-fox-academy/danizsin#readme",
   "dependencies": {
     "@types/node": "^10.12.5"
+  },
+  "devDependencies": {
+    "tape": "^4.9.1"
   }
 }
