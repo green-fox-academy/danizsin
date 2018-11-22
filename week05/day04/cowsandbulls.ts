@@ -10,7 +10,7 @@ class CowsNBulls {
     this.guesses = 0;
   }
 
-  guess(tryOutThisNum: number) {
+  guess(tryOutThisNum: number): string {
     let numberToBeGuessed: number[] = this.numberToGuess.toString().split('').map(Number);
     let tryOutGuess: number[] = tryOutThisNum.toString().split('').map(Number);
     let guessResult: string = '';
@@ -33,7 +33,6 @@ class CowsNBulls {
         guessResult += `  fail  `;
       }
     });
-
 
     this.guesses += 1;
 
@@ -64,13 +63,13 @@ console.log(`\t\t\t\t\t\t\t\tCOWS N BULLS\r\n\r\n\t\t\t\t\t\t\t\tTHE GAME STARTE
 
 let stdin: any = process.openStdin();
 stdin.addListener('data', function (event) {
-  let inputNum = event.toString().trim();
+  let inputNum: string = event.toString().trim();
   if (inputNum.split('').length === 4) {
     if (+inputNum === game.getNumberToGuess()) {
-      console.log(game.guess(inputNum));
+      console.log(game.guess(+inputNum));
       process.exit();
     } else {
-      console.log(game.guess(inputNum));
+      console.log(game.guess(+inputNum));
     }
   } else console.log(`Enter a 4 digit number!`);
 });
