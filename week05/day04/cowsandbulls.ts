@@ -4,8 +4,8 @@ class CowsNBulls {
   private numberToGuess: number;
   private state: string;
   private guesses: number;
-  constructor(numToGuess: number) {
-    this.numberToGuess = numToGuess;
+  constructor() {
+    this.numberToGuess = Math.floor(Math.random() * 9000) + 1000;
     this.state = 'playing';
     this.guesses = 0;
   }
@@ -59,7 +59,7 @@ class CowsNBulls {
 
 }
 
-let game = new CowsNBulls(Math.floor(Math.random()*9000)+1000);
+let game = new CowsNBulls();
 console.log(`\t\t\t\t\t\t\t\tCOWS N BULLS\r\n\r\n\t\t\t\t\t\t\t\tTHE GAME STARTED!\r\n\t\t\t\t\t\t\t\tENTER A 4 DIGIT NUMBER!\r\n\t\t\t\t\t\t\t\tCOW : YOUR NUMBER IS AT THE RIGHT PLACE\r\n\t\t\t\t\t\t\t\tBULL : YOUR NUMBER IS SOMEWHERE ELSE\r\n\t\t\t\t\t\t\t\tFAIL : YOUR NUMBER DOESNT EXIST`);
 
 let stdin: any = process.openStdin();
