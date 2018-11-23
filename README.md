@@ -1,11 +1,7 @@
-[Hello World repository](https://github.com/danizsin/hello-world)
+# Welcome to my repository
 
-[Patchwork repository](https://github.com/danizsin/patchwork)
 
-[Git Lesson repository](https://github.com/danizsin/git-lesson-repository)
 
-[Daniel Zsin Github.io website](https://danizsin.github.io/)
-
-[Greenfox Really Syllabus :)](https://github.com/green-fox-academy/really-syllabus)
-
-[My TODO application](https://github.com/danizsin/todo-app)
+REALLY SYLLABUS|MY OFFICIAL WEBSITE|MY LITTLE TODO APPLICATION|
+---------------|-------------------|--------------------------|
+[:green_heart::wolf: syllabus is here :wolf::green_heart:](https://github.com/green-fox-academy/really-syllabus)|[:arrow_right: check out my very own site :arrow_left:](https://danizsin.github.io/)|[:100: click here for an awesome ToDo app :100:](https://github.com/danizsin/todo-app)
