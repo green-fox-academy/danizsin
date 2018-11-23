@@ -7,3 +7,5 @@
 [Daniel Zsin Github.io website](https://danizsin.github.io/)
 
 [Greenfox Really Syllabus :)](https://github.com/green-fox-academy/really-syllabus)
+
+[My TODO application](https://github.com/danizsin/todo-app)
