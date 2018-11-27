@@ -8,4 +8,4 @@ REALLY SYLLABUS|MY OFFICIAL WEBSITE|MY LITTLE TODO APPLICATION|
 
 WANDERER THE GAME|
 ---------------------------------------------|
-[:fire::100: click here for the most awesome pokemon game ever created jk :squirrel::trollface:](https://github.com/danizsin/wanderer-typescript)|
+[:fire::100: click here for the most awesome pokemon game ever created :squirrel::trollface:](https://github.com/danizsin/wanderer-typescript)|
