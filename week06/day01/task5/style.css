@@ -1,0 +1,22 @@
+body{
+  padding:0;
+  margin:0;
+}
+*{
+  box-sizing: border-box;
+}
+
+.container{
+  width:700px;
+  height:350px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-color: yellow;
+}
+
+.item{
+  height:80px;
+  width:80px;
+  background-color: palevioletred;
+}
