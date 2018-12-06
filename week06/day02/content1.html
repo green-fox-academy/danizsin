@@ -16,16 +16,16 @@
   <script>
     // 1)  Fill every paragraph with the last one's content.
 
-    let lastOneText = document.getElementsByClassName('animals')[0].textContent;
-    let paragrapsText = document.getElementsByTagName('p');
+    let lastOneText = document.document.querySelectorAll('.animals')[0].textContent;
+    let paragrapsText = document.document.querySelectorAll('p');
     for (let i = 0; i < paragrapsText.length; i++) {
       paragrapsText[i].textContent = lastOneText;
     }
 
     // 2)  Do the same again, but you should keep the cat strong.
 
-    let lastOne = document.getElementsByClassName('animals')[0].innerHTML;
-    let paragraps = document.getElementsByTagName('p');
+    let lastOne = document.document.querySelectorAll('.animals')[0].innerHTML;
+    let paragraps = document.querySelectorAll('p');
     for (let i = 0; i < paragraps.length; i++) {
       paragraps[i].innerHTML = lastOne;
     }
