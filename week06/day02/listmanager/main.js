@@ -33,19 +33,18 @@ const downBtn = navButtons.childNodes[3];
 
 let selected = 0;
 let currentToDo = todoList.childNodes[selected];
-currentToDo.style.backgroundColor = 'red';
+currentToDo.style.backgroundColor = 'cyan';
 let counter = 0;
 
-upBtn.onclick = () => {
+const upFunc = () => {
   if (selected - 1 >= 0 && todoList.childNodes.length > 1) {
     --selected;
     currentToDo = todoList.childNodes[selected];
-    currentToDo.style.backgroundColor = 'red';
+    currentToDo.style.backgroundColor = 'cyan';
     todoList.childNodes[selected + 1].style.backgroundColor = 'white';
   }
 }
-
-rightBtn.onclick = () => {
+const rightFunc = () => {
   if (todoList.childNodes.length - 1 >= 0) {
     if (todoList.childNodes.length - 1 > 0) {
       doneList.appendChild(todoList.childNodes[selected]);
@@ -53,15 +52,14 @@ rightBtn.onclick = () => {
       ++counter;
       selected = 0;
       currentToDo = todoList.childNodes[selected];
-      currentToDo.style.backgroundColor = 'red';
+      currentToDo.style.backgroundColor = 'cyan';
     } else {
       doneList.appendChild(todoList.childNodes[selected]);
       doneList.childNodes[counter].style.backgroundColor = 'white';
     }
   }
 }
-
-xBtn.onclick = () => {
+const xFunc = () => {
   while (doneList.firstChild) {
     doneList.removeChild(doneList.firstChild);
   }
@@ -72,15 +70,49 @@ xBtn.onclick = () => {
   selected = 0;
   counter = 0;
   currentToDo = todoList.childNodes[selected];
-  currentToDo.style.backgroundColor = 'red';
+  currentToDo.style.backgroundColor = 'cyan';
 }
-
-downBtn.onclick = () => {
+const downFunc = () => {
   if (selected + 1 < todoList.childNodes.length && todoList.childNodes.length > 1) {
     ++selected;
     currentToDo = todoList.childNodes[selected];
-    currentToDo.style.backgroundColor = 'red';
+    currentToDo.style.backgroundColor = 'cyan';
     todoList.childNodes[selected - 1].style.backgroundColor = 'white';
   }
 }
 
+
+upBtn.onclick = () => {
+  upFunc();
+}
+
+rightBtn.onclick = () => {
+  rightFunc();
+}
+
+xBtn.onclick = () => {
+  xFunc();
+}
+
+downBtn.onclick = () => {
+  downFunc();
+}
+
+const onKeyDown = (event) => {
+  switch (event.keyCode) {
+    case 37:  // LEFT
+      xFunc();
+      break;
+    case 38:  // UP
+      upFunc();
+      break;
+    case 39:  // RIGHT
+      rightFunc();
+      break;
+    case 40:  //DOWN
+      downFunc();
+      break;
+  }
+}
+
+document.body.addEventListener('keydown', onKeyDown);
