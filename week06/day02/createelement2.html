@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Workshop: CreateElement</title>
+</head>
+
+<body>
+  <ul class="asteroids">
+    <li>The King</li>
+  </ul>
+
+  <!-- You can work in the html or in a separate js file. Like: -->
+  <script>
+
+    const planetData = [
+      {
+        category: 'inhabited',
+        content: 'Foxes',
+        asteroid: true,
+      },
+      {
+        category: 'inhabited',
+        content: 'Whales and Rabbits',
+        asteroid: true,
+      },
+      {
+        category: 'uninhabited',
+        content: 'Baobabs and Roses',
+        asteroid: true,
+      },
+      {
+        category: 'inhabited',
+        content: 'Giant monsters',
+        asteroid: false,
+      },
+      {
+        category: 'inhabited',
+        content: 'Sheep',
+        asteroid: true,
+      },
+    ];
+
+    // Remove the king from the list.
+    let ul = document.querySelector('ul');
+    let king = document.querySelector('ul li');
+    ul.removeChild(king);
+
+    // Fill the list based on the following list of objects.
+    planetData.forEach(e => {
+      let newLi = document.createElement('li');
+      ul.appendChild(newLi);
+    });
+
+    // Only add the asteroids to the list.
+    planetData.forEach(e => {
+      let newLi = document.createElement('li');
+      if (e.asteroid) {
+        ul.appendChild(newLi);
+      }
+    });
+
+    // Each list item should have its category as a class and its content as text content.
+    planetData.forEach(e => {
+      let newLi = document.createElement('li');
+      newLi.innerText = e.content;
+      newLi.classList.add(`${e.category}`);
+      ul.appendChild(newLi);
+    });
+
+  </script>
+  <!-- OR -->
+  <!-- <script src="createelement-2.js"></script> -->
+</body>
+
+</html>
