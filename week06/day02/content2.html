@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Workshop: innerHTML, textContent</title>
+</head>
+
+<body>
+  <style>
+    .limegreen {
+      background-color: limegreen;
+    }
+  </style>
+  <ul>
+    <li>placeholder</li>
+    <li>placeholder</li>
+    <li>placeholder</li>
+    <li>placeholder</li>
+  </ul>
+
+  <!-- You can work in the html or in a separate js file. Like: -->
+  <script>
+    // 1) replace the list items' content with items from this list:
+
+    let fruits = ['apple', 'banana', 'cat', 'dog'];
+    let liArray = document.querySelectorAll('li');
+    for (let i = 0; i < liArray.length; i++) {
+      liArray[i].textContent = fruits[i];
+    }
+
+    // 2) change the <ul> element's background color to 'limegreen'
+    //   - use css class to change the color instead of the style property
+    let ul = document.querySelector('ul');
+    ul.className = 'limegreen';
+
+  </script>
+  <!-- OR -->
+  <!-- <script src="content-2.js"></script> -->
+</body>
+
+</html>
