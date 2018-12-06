@@ -29,9 +29,9 @@
     // Turn the party on and off by clicking the button. (the whole page)
     const partyButton = document.querySelector('button');
     const myDiv = document.querySelector('div');
-    partyButton.addEventListener('click', function () {
+    partyButton.onclick = () => {
       myDiv.classList.toggle('party');
-    });
+    };
   </script>
   <!-- OR -->
   <!-- <script src="events-1.js"></script> -->
