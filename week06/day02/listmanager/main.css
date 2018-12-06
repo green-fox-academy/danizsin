@@ -1,0 +1,36 @@
+body{
+  width:100vw;
+  height: 100vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul{
+  width:200px;
+  height:200px;
+  margin-right: 25px;
+  display: inline-block;
+}
+
+li{
+  list-style: none;
+  width:100%;
+  height:50px;
+  line-height: 50px;
+  font-size: 30px;
+  text-align: center;
+  border:1px solid black;
+  user-select: none;
+}
+
+ul:nth-child(odd) li{
+  cursor: pointer;
+  background-color: #CCCCCC;
+}
