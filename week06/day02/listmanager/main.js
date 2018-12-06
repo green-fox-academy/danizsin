@@ -36,11 +36,15 @@ let currentToDo = todoList.childNodes[selected];
 currentToDo.style.backgroundColor = 'cyan';
 let counter = 0;
 
+const currentSelectedColoring = () => {
+  currentToDo = todoList.childNodes[selected];
+  currentToDo.style.backgroundColor = 'cyan';
+}
+
 const upFunc = () => {
   if (selected - 1 >= 0 && todoList.childNodes.length > 1) {
     --selected;
-    currentToDo = todoList.childNodes[selected];
-    currentToDo.style.backgroundColor = 'cyan';
+    currentSelectedColoring();
     todoList.childNodes[selected + 1].style.backgroundColor = 'white';
   }
 }
@@ -51,8 +55,7 @@ const rightFunc = () => {
       doneList.childNodes[counter].style.backgroundColor = 'white';
       ++counter;
       selected = 0;
-      currentToDo = todoList.childNodes[selected];
-      currentToDo.style.backgroundColor = 'cyan';
+      currentSelectedColoring();
     } else {
       doneList.appendChild(todoList.childNodes[selected]);
       doneList.childNodes[counter].style.backgroundColor = 'white';
@@ -69,14 +72,12 @@ const xFunc = () => {
   fillToDos();
   selected = 0;
   counter = 0;
-  currentToDo = todoList.childNodes[selected];
-  currentToDo.style.backgroundColor = 'cyan';
+  currentSelectedColoring();
 }
 const downFunc = () => {
   if (selected + 1 < todoList.childNodes.length && todoList.childNodes.length > 1) {
     ++selected;
-    currentToDo = todoList.childNodes[selected];
-    currentToDo.style.backgroundColor = 'cyan';
+    currentSelectedColoring();
     todoList.childNodes[selected - 1].style.backgroundColor = 'white';
   }
 }
