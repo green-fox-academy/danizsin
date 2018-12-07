@@ -1,25 +1,24 @@
 'use strict';
 window.onload = () => {
   const pictures = [
-    { 'source': 'images/landscape0.jpg', 'title': 'Riverside', 'desc': 'i have to write soemthing here to fill the space left by the cosmic air' },
-    { 'source': 'images/landscape1.jpg', 'title': 'something1', 'desc': 'nyihaha' },
-    { 'source': 'images/landscape2.jpg', 'title': 'something2', 'desc': 'lol' },
-    { 'source': 'images/landscape3.jpg', 'title': 'something3', 'desc': 'haha' },
-    { 'source': 'images/landscape4.jpg', 'title': 'something4', 'desc': 'hihi' },
-    { 'source': 'images/landscape5.jpg', 'title': 'something5', 'desc': 'muhaha' },
-    { 'source': 'images/landscape6.jpg', 'title': 'something5', 'desc': 'muhaha' }
+    { 'source': 'images/landscape0.jpg', 'title': 'Riverside', 'desc': 'I have to write soemthing here to fill the space left by the cosmic air' },
+    { 'source': 'images/landscape1.jpg', 'title': 'River delta', 'desc': 'The river delta created some very nice effects on the sky but for sure it is a paradoxon sorry for that in advance and please no complaint' },
+    { 'source': 'images/landscape2.jpg', 'title': 'Sunset at the lake', 'desc': 'The sun was shining so bright that no-one could see anything on the sky ' },
+    { 'source': 'images/landscape3.jpg', 'title': 'Mirror image', 'desc': 'The most fascinating mirror image I have ever seen in my life, but unfortunately and sadly probably the last one as well, I\'m so mad. ' },
+    { 'source': 'images/landscape4.jpg', 'title': 'Milky way', 'desc': 'Always wanted to being able to see the Milky Way on the sky and now I have finally achieved my goal and fulfilled my childish dream. thanks for reading this meaningful sentence.' },
+    { 'source': 'images/landscape5.jpg', 'title': 'Mount Fuji', 'desc': 'I can really not write anything interesting here now, please suggest some deep and very interesting quotesfor this image, i would be really thankful' },
+    { 'source': 'images/landscape6.jpg', 'title': 'Flood over savannah', 'desc': 'Insert some very deep intellectual content here to surpass time without any corresponding quality quotes of mine' }
   ];
 
   const mainDisplay = document.querySelector('.maindisplay');
   const myFooter = document.querySelector('footer');
   const leftArrow = document.querySelector('.left');
   const rightArrow = document.querySelector('.right');
-  const article = document.querySelector('article');
   const header = document.querySelector('h1');
   const paragraph = document.querySelector('p');
   let counter = 0;
 
-  const createImages = () => {
+  const createThumbnailImages = () => {
     pictures.forEach((e, i) => {
       let image = document.createElement('img');
       image.src = e.source;
@@ -36,6 +35,8 @@ window.onload = () => {
     let image = document.createElement('img');
     image.src = pictures[counter].source;
     mainDisplay.appendChild(image);
+    header.innerText = pictures[counter].title;
+    paragraph.innerText = pictures[counter].desc;
   }
 
   const toggleActiveClass = () => {
@@ -92,7 +93,7 @@ window.onload = () => {
     swipeLeft();
   }
 
-  createImages();
+  createThumbnailImages();
   loadMainImage();
 
   const thumbnails = document.querySelectorAll('.thumbnail');
@@ -104,10 +105,10 @@ window.onload = () => {
 
   const keyDown = (event) => {
     switch (event.keyCode) {
-      case 37:  // LEFT
+      case 37:
         swipeLeft();
         break;
-      case 39:  // RIGHT
+      case 39:
         swipeRight();
         break;
     }
