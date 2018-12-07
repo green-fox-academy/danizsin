@@ -1,7 +1,7 @@
 'use strict';
 window.onload = () => {
   const pictures = [
-    { 'source': 'images/landscape0.jpg', 'title': 'Riverside', 'desc': 'I have to write soemthing here to fill the space left by the cosmic air' },
+    { 'source': 'images/landscape0.jpg', 'title': 'Riverside', 'desc': 'I have to write something here to fill the space left by the cosmic air' },
     { 'source': 'images/landscape1.jpg', 'title': 'River delta', 'desc': 'The river delta created some very nice effects on the sky but for sure it is a paradoxon sorry for that in advance and please no complaint' },
     { 'source': 'images/landscape2.jpg', 'title': 'Sunset at the lake', 'desc': 'The sun was shining so bright that no-one could see anything on the sky ' },
     { 'source': 'images/landscape3.jpg', 'title': 'Mirror image', 'desc': 'The most fascinating mirror image I have ever seen in my life, but unfortunately and sadly probably the last one as well, I\'m so mad. ' },
