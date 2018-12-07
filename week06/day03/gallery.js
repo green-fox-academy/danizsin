@@ -21,11 +21,17 @@ window.onload = () => {
 
   const createThumbnailImages = () => {
     pictures.forEach((e, i) => {
+      let imgCont = document.createElement('div');
       let image = document.createElement('img');
+      let tooltip = document.createElement('p');
       image.src = e.source;
       image.classList.add('thumbnail');
       image.setAttribute('data-imgid', i);
-      myFooter.appendChild(image);
+      tooltip.innerText = e.title;
+
+      imgCont.appendChild(tooltip);
+      imgCont.appendChild(image);
+      myFooter.appendChild(imgCont);
       if (i === counter) {
         image.classList.add('active');
       }
@@ -98,10 +104,19 @@ window.onload = () => {
   loadMainImage();
 
   const thumbnails = document.querySelectorAll('.thumbnail');
+  const thumbnailConts = document.querySelectorAll('footer div');
   thumbnails.forEach(e => {
     e.addEventListener('click', function (event) {
       clickThumbnail(event.target);
     });
+
+    e.onmouseover = (event) => {
+      thumbnailConts[event.target.getAttribute('data-imgid')].firstChild.style.display = 'block';
+    };
+
+    e.onmouseout = (event) => {
+      thumbnailConts[event.target.getAttribute('data-imgid')].firstChild.style.display = 'none';
+    };
   });
 
   const keyDown = (event) => {
