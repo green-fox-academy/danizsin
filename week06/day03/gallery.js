@@ -7,7 +7,8 @@ window.onload = () => {
     { 'source': 'images/landscape3.jpg', 'title': 'Mirror image', 'desc': 'The most fascinating mirror image I have ever seen in my life, but unfortunately and sadly probably the last one as well, I\'m so mad. ' },
     { 'source': 'images/landscape4.jpg', 'title': 'Milky way', 'desc': 'Always wanted to being able to see the Milky Way on the sky and now I have finally achieved my goal and fulfilled my childish dream. thanks for reading this meaningful sentence.' },
     { 'source': 'images/landscape5.jpg', 'title': 'Mount Fuji', 'desc': 'I can really not write anything interesting here now, please suggest some deep and very interesting quotesfor this image, i would be really thankful' },
-    { 'source': 'images/landscape6.jpg', 'title': 'Flood over savannah', 'desc': 'Insert some very deep intellectual content here to surpass time without any corresponding quality quotes of mine' }
+    { 'source': 'images/landscape6.jpg', 'title': 'Flood over savannah', 'desc': 'Insert some very deep intellectual content here to surpass time without any corresponding quality quotes of mine' },
+    { 'source': 'images/landscape7.jpg', 'title': 'Red Light District', 'desc': 'Insert some very deep intellectual content here to surpass time without any corresponding quality quotes of mine' }
   ];
 
   const mainDisplay = document.querySelector('.maindisplay');
