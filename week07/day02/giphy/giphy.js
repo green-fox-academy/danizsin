@@ -10,7 +10,6 @@ const createHttpRequest = (url, method, callback) => {
 }
 
 const selectFunnyPics = (response) => {
-  console.log(response.data);
   const div = document.createElement('div');
   response.data.forEach(e => {
     const img = document.createElement('img');
@@ -25,11 +24,6 @@ const selectFunnyPics = (response) => {
     thumbnails.forEach(e => {
       e.onclick = (event) => {
         event.target.src = event.target.getAttribute('data-bigimgurl');
-        // const figure = document.createElement('figure');
-        // const bigimg = document.createElement('img');
-        // bigimg.src = event.target.getAttribute('data-bigimgurl');
-        // figure.appendChild(bigimg);
-        // htmlbody.appendChild(figure);
       }
     });
   }
