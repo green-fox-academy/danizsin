@@ -12,7 +12,7 @@ const createHttpRequest = (url, method, callback) => {
   xhr.send();
 }
 
-const allFilms = []
+const allFilms = [];
 createHttpRequest(`${httpUrl}/films/`, httpMethod, (films) => {
   films.results.forEach(film => {
     allFilms.push(film);
@@ -34,7 +34,6 @@ const selectChar = (res) => {
       while (secondDiv.firstChild) {
         secondDiv.removeChild(secondDiv.firstChild);
       }
-      paragraph.style.backgroundColor = 'pink';
       e.films.forEach(film => {
         const filmpar = document.createElement('p');
         filmpar.innerText = allFilms[film.slice(-2, -1)].title;
