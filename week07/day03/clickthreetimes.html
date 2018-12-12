@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>click3times click</title>
+</head>
+
+<body>
+  <button>click me</button>
+  <div></div>
+  <script>
+    let clickcounter = 0;
+    let seconds = 0;
+    const mydiv = document.querySelector('div');
+
+    const timer = setTimeout(() => {
+      if (clickcounter > 2) {
+        mydiv.innerText = 'sample text';
+      }
+      seconds = 5;
+      clearTimeout(timer);
+    }, 5000);
+
+    const btn = document.querySelector('button');
+    btn.addEventListener('click', () => {
+      ++clickcounter;
+      if (clickcounter > 2 && seconds == 5) {
+        mydiv.innerText = 'sample text';
+      }
+    });
+  </script>
+</body>
+
+</html>
