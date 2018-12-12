@@ -16,8 +16,8 @@
     // Try to solve this two different ways.
     // hint: take a look at the button attributes https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
     const button = document.querySelector('button');
-    const logtimestamp = () => {
-      console.log(new Date);
+    const logtimestamp = (event) => {
+      console.log(event.timeStamp);
       button.removeEventListener('click', logtimestamp);
       button.disabled = 'true';
     }
