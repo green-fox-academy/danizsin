@@ -77,9 +77,9 @@
     const divcreator = setInterval(() => {
       if (counter <= allDivs.length) {
         if (checkPrime(parseInt(counter))) {
-          allDivs[counter - 1].classList.add('prime');
-        } else {
           allDivs[counter - 1].classList.add('not-prime');
+        } else {
+          allDivs[counter - 1].classList.add('prime');
         }
         counter++;
       } else {
