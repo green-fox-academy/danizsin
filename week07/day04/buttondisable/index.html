@@ -10,16 +10,33 @@
 </head>
 
 <body>
-  <form action="index.html">
+  <form action="index.html" name="myform">
     <h3>What is your favourite pet?</h3>
-    <div>
-      <input type="radio" name="radios" id="dog">
-      <label for="dog">Dog</label>
-      <input type="radio" name="radios" id="cat">
-      <label for="cat">Cat</label>
-      <input type="radio" name="radios" id="fish">
-      <label for="fish">Viktor the goldfish</label>
-    </div>
+    <section>
+      <div>
+        <input type="radio" name="favanim" id="dog" value="dog">
+        <label for="dog">Dog</label>
+      </div>
+      <div>
+        <input type="radio" name="favanim" id="cat" value="cat">
+        <label for="cat">Cat</label>
+      </div>
+      <div>
+        <input type="radio" name="favanim" id="fish" value="fish">
+        <label for="fish">Viktor the goldfish</label>
+      </div>
+      <h3>Do you want to sign up for cat facts?</h3>
+      <div>
+        <input type="radio" name="facts" id="yes" value="yes">
+        <label for="yes">Yes</label>
+      </div>
+      <div>
+        <input type="radio" name="facts" id="no" value="nope">
+        <label for="no">No</label>
+      </div>
+      <button class="lovecats" disabled>I love cats</button>
+      <button class="signup" disabled>Sign up</button>
+    </section>
   </form>
   <script src="main.js"></script>
 </body>
