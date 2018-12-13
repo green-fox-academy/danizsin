@@ -4,8 +4,6 @@ const facts = form.facts;
 const signupbtn = document.querySelector('.signup');
 const lovecatsbtn = document.querySelector('.lovecats');
 const buttons = document.querySelectorAll('button');
-// signupbtn.disabled = 'true';
-// lovecatsbtn.disabled = 'true';
 
 form.addEventListener('change', () => {
   if (animal.value === 'dog' || animal.value === 'cat' || (animal.value === 'fish' && facts.value === 'nope')) {
