@@ -11,34 +11,36 @@
 </head>
 
 <body>
-  <i class="fas fa-fish"></i>
-  <i id="dog" class=" fas fa-dog"></i>
+  <i id="fishy" class="fas fa-fish"></i>
+  <i id="doggy" class=" fas fa-dog"></i>
   <form action="index.html" name="myform">
-    <h3>What is your favourite pet?</h3>
     <section>
-      <div>
+      <h3>What is your favourite pet?</h3>
+      <div class="favanimal">
         <input type="radio" name="favanim" id="dog" value="dog">
-        <label for="dog">Dog</label>
+        <label for="dog">Dagi, the&nbsp;<i class="icon icondoggo fas fa-dog"></i></label>
       </div>
-      <div>
+      <div class="favanimal">
         <input type="radio" name="favanim" id="cat" value="cat">
-        <label for="cat">Cat</label>
+        <label for="cat">Kati, the&nbsp;<i class="icon iconcat fas fa-cat"></i></label>
       </div>
-      <div>
+      <div class="favanimal">
         <input type="radio" name="favanim" id="fish" value="fish">
-        <label for="fish">Viktor the goldfish</label>
+        <label for="fish">Viktor, the gold&nbsp;<i class="icon iconfishy fas fa-fish"></i></label>
       </div>
       <h3>Do you want to sign up for cat facts?</h3>
-      <div>
+      <div class="facts">
         <input type="radio" name="facts" id="yes" value="yes">
         <label for="yes">Yes</label>
       </div>
-      <div>
+      <div class="facts">
         <input type="radio" name="facts" id="no" value="nope">
         <label for="no">No</label>
       </div>
-      <button class="lovecats" disabled>I love cats</button>
-      <button class="signup" disabled>Sign up</button>
+      <nav>
+        <button class="lovecats" disabled>I LOVE CATS</button>
+        <button class="signup" disabled>SIGN UP</button>
+      </nav>
     </section>
     <audio id="audio" src="dogbark.mp3"></audio>
   </form>
