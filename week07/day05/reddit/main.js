@@ -1,6 +1,8 @@
 'use strict';
 
 const mainCont = document.querySelector('main');
+const submitpost = document.querySelector('.submitnewpostbtn');
+const redditicon = document.querySelector('.mainicon');
 const data = [
   { "id": 1, "title": "some actually really nice content to fill up space left by the cosmic air by me salalala", "commentnum": "2", "timestamp": 1544477937, "score": 2103, "user": "Jancsika" },
   { "id": 2, "title": "some actually really nice content to fill up space left by the cosmic air", "commentnum": "10", "timestamp": 1165445665, "score": 6344, "user": "Karcsika" },
@@ -14,6 +16,15 @@ const data = [
 window.onload = () => {
   createPosts();
 }
+
+submitpost.addEventListener('click', () => {
+  document.location.replace('submitnewpost.html');
+});
+
+redditicon.addEventListener('click', () => {
+  document.location.replace('index.html');
+});
+
 
 const createPosts = () => {
   data.forEach(post => {

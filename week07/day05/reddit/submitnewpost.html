@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
   <link rel="stylesheet" href="style.css">
-  <title>Very personal Reddit</title>
+  <title>Reddit: submit a new post</title>
 </head>
 
 <body>
@@ -18,24 +18,17 @@
       </figure>
       <p>Tesla Roadster</p>
     </header>
-    <section>
-      <main></main>
-      <aside>
-        <div class="submitnewpostbtn">submit a new post</div>
-        <div class="abouttesla">
-          <p>ABOUT&nbsp;<a href="#">r/tesla</a></p>
-          <p>Share and discuss content on :</p>
-          <ul>
-            <li>Tesla Model 3</li>
-            <li>Tesla Model X</li>
-            <li>Tesla Model S</li>
-            <li>Tesla Model Roadster</li>
-          </ul>
-        </div>
-      </aside>
+    <section class="sectionsubmitnew">
+      <form action="submitnewpost.html">
+        <label for="newposttitle"><span>*</span>Post title</label>
+        <input type="text" id="newposttitle" name="newposttitle" placeholder="e.g.: i made a sandwich wooow">
+        <label for="newposturl">Post URL</label>
+        <input type="text" id="newposturl" name="newposturl" placeholder="e.g.: https://salalala.com">
+        <input type="submit" value="submit">
+      </form>
     </section>
   </div>
-  <script src="main.js"></script>
+  <script src="./submitpost.js"></script>
 </body>
 
 </html>
