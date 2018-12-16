@@ -66,15 +66,6 @@ submitpost.addEventListener('click', () => {
   document.location.replace('submitnewpost.html');
 });
 
-const compareScores = (post1, post2) => {
-  if (post1.score > post2.score) {
-    return -1;
-  } else if (post1.score < post2.score) {
-    return 1;
-  }
-  return 0;
-}
-
 const createPosts = (post) => {
 
   const article = document.createElement('article');
@@ -197,7 +188,6 @@ const createPosts = (post) => {
   const modifypost = document.createElement('a');
   modifypost.innerText = 'modify';
   modifypost.setAttribute('href', `modifypost.html?post=${post.id}&title=${post.title}&posturl=${post.url}`);
-  // modifypost.addEventListener('click', openModifyPost);
   const removepost = document.createElement('a');
   removepost.innerText = 'remove';
   actions.appendChild(comments);
