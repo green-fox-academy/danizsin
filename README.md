@@ -10,6 +10,6 @@ WANDERER THE GAME|
 ---------------------------------------------|
 [:fire::100: click here for the most awesome pokemon game ever created :squirrel::trollface:](https://github.com/danizsin/wanderer-typescript)|
 
-PICTURE GALLERY|
----------------|
-[:sunny: insanely fancy image gallery :fire:](https://github.com/green-fox-academy/danizsin/tree/master/week06/day03)|
+PICTURE GALLERY|REDDIT PROJECT|
+---------------|--------------|
+[:sunny: insanely fancy image gallery :fire:](https://github.com/green-fox-academy/danizsin/tree/master/week06/day03)|[:zap: extraordinary reddit page :rainbow:](https://github.com/green-fox-academy/danizsin/tree/master/week07/day05/reddit)|
