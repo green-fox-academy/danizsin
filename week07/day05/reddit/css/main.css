@@ -5,7 +5,7 @@ body {
   height: 100vh;
   font-family: 'Lato', sans-serif;
   display: flex;
-  background-color: #EEEEEE;
+  background-color: rgb(153, 153, 153);
   justify-content: center;
   overflow-x: hidden;
 }
@@ -15,70 +15,69 @@ body {
   padding: 0;
   margin: 0;
 }
-
-::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	background-color:#4d4d4d;
+::-webkit-scrollbar-track {
+	/* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+	background-color:rgb(153, 153, 153);
 	border-radius: 10px;
 }
 
-::-webkit-scrollbar
-{
+::-webkit-scrollbar {
 	width: 12px;
-	background-color:rgba(0,0,0,0.45);
-	border-radius: 10px;
+	background-color:rgb(153, 153, 153);
+	/* border-radius: 10px; */
 }
 
-::-webkit-scrollbar-thumb
-{
+::-webkit-scrollbar-thumb {
 	border-radius: 10px;
 	-webkit-box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
-	background-color:maroon;
+	box-shadow: inset 0 0 10px rgba(0,0,0,0.7);
+	background-color:#2d7047;
 }
 
 div.mainview{
-  width:1432px;
+  width:1400px;
   height:100vh;
 }
 
 header{
-  width:1432px;
-  height:302px;
-  background-image: url(./images/roadster.png);
-  background-repeat: no-repeat;
+  width:1400px;
+  height:300px;
   position: fixed;
-  box-shadow: 0 10px 15px -6px black;
   z-index: 100;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  background-color: rgb(153, 153, 153);
+  border: 1px solid transparent;
 }
 
-div.mainview header figure{
-  width:100px;
-  height:60%;
+header > img{
+  width:100%;
+  height:100%;
+  border-radius: 50%;
+  box-shadow: 0px 0px 15px 3px black;
+}
+
+div.mainview header a{
+  width:130px;
+  height:130px;
   position: absolute;  
   top:50%;
   transform: translateY(-50%);
   left:50px;
 }
 
-div.mainview header figure img{
+div.mainview header a img{
   width:100%;
   height:100%;
   cursor: pointer;
+  transition: 0.8s;
+  border-radius: 50%;
 }
 
-div.mainview header p{
-  color:white;
-  font-weight: bold;
-  font-size: 70px;
-  font-style: italic;
-  position: absolute;
-  top:10%;
-  left:60%;
-  text-shadow:  2px 2px black,
-                0px 0px black,
-                2px 0px black,
-                0px 2px black;
+div.mainview header a img:hover{
+  transform: rotate(360deg);
+  box-shadow: 0px 0px 15px 5px black;
 }
 
 section{
@@ -99,7 +98,7 @@ section aside{
 }
 
 section aside div.submitnewpostbtn{
-  background-color: maroon;
+  background-color: #2d7047;
   color:white;
   font-weight: bold;
   width:100%;
@@ -110,10 +109,11 @@ section aside div.submitnewpostbtn{
   text-transform: uppercase;
   margin-bottom: 10px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-section aside div.submitnewpostbtn:hover{
-  background-color: rgb(94, 2, 2);
+section aside div.submitnewpostbtn:hover, section.sectionsubmitnew form input[type=submit]:hover{
+  background-color: #174227;
 }
 
 section aside div.abouttesla{
@@ -143,7 +143,7 @@ section aside div.abouttesla p:nth-child(1){
 section aside div.abouttesla p:nth-child(1) a{
   outline: none;
   text-decoration: none;
-  color:maroon;
+  color:#2d7047;
 }
 
 section aside div.abouttesla p:nth-child(2){
@@ -171,6 +171,7 @@ section main article{
   height:200px;  
   display: flex;
   background-color: white;
+  border-radius: 20px;
 }
 
 section main article div.ratecont{
@@ -178,7 +179,7 @@ section main article div.ratecont{
   height:100%;
   display: flex;
   flex-direction: column;
-  color:#B4B4B4;
+  color:rgb(153, 153, 153);
 }
 
 section main article div.ratecont p{
@@ -201,10 +202,15 @@ section main article div.ratecont i{
   cursor: pointer;
 }
 
+section main article div.ratecont i:hover{
+  color:#2d7047;
+}
+
 section main article div.postdatacont{
   width:88%;
   display: flex;
   flex-direction: column;
+  font-weight: bold;
 }
 
 section main article div.postdatacont p{
@@ -218,11 +224,13 @@ section main article div.postdatacont p:nth-child(1){
   overflow: hidden;
   padding:10px;
   font-size: 28px;
-  font-weight: bold;
 }
 
-section main article div.postdatacont p span{
+section main article div.postdatacont p a{
   margin-left: 10px;
+  outline:none;
+  text-decoration: none;
+  color:black;
 }
 
 section main article div.postdatacont p:nth-child(3) span{
@@ -230,57 +238,20 @@ section main article div.postdatacont p:nth-child(3) span{
 }
 
 span.commentsspan, span.userofsubmit{
-  color:maroon;
+  color:#2d7047;
   font-weight: bold;
 }
 
 span.userofsubmit{
   cursor: pointer;
-  margin-left: 0;
+  margin-left: 4px;
 }
 
-section.sectionsubmitnew{
-  display: flex;
-  justify-content: center;
+strong{
+  color:#2d7047;
+  margin: 0 3px;
 }
 
-section.sectionsubmitnew form{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width:60%;
-}
-
-section.sectionsubmitnew form input{
-  width:70%;
-  padding:6px;
-  height:50px;
-  font-size: 20px;
-  margin-bottom: 25px;
-  border:none;
-  outline: none;
-}
-
-section.sectionsubmitnew form label{
-  width:70%;
-  font-size: 30px;
-  font-weight: bold;
-  padding:10px;
-  margin-bottom: 25px;
-}
-
-section.sectionsubmitnew form label span{
-  color: red;
-}
-
-
-section.sectionsubmitnew form input[type=submit]{
-  text-transform: uppercase;
-  color:white;
-  background-color: maroon;
-  padding:10px;
-  width:30%;
-  font-weight: bold;
-  cursor: pointer;
+.votedarrow{
+  color:#2d7047;
 }
