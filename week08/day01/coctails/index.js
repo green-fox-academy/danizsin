@@ -21,7 +21,7 @@ app.set('view engine', 'ejs');
 
 // home page
 app.get('/', (req, res) => {
-  const { alcohol, all } = req.query;
+  const { alcohol } = req.query;
   if (alcohol) {
     res.render('home', {
       cocktails: cocktails.filter(e => e.contains.includes(alcohol)),
