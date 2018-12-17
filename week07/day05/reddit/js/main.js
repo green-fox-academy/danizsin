@@ -6,7 +6,7 @@ const redditicon = document.querySelector('.mainicon');
 const data = [
   {
     "id": 1, "title": "some actually really nice content to fill up space left by the cosmic air by me salalala",
-    "commentnum": "2", "timestamp": 1544876445, "score": 2103, "user": "Jancsika", "url": "apple.com", "upvoted": false, "downvoted": false
+    "commentnum": "2", "timestamp": 1545040545, "score": 2103, "user": "Jancsika", "url": "apple.com", "upvoted": false, "downvoted": false
   },
   {
     "id": 2, "title": "some actually really nice content to fill up space left by the cosmic air",

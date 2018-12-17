@@ -107,7 +107,7 @@ section form input{
   transition: 0.3s;
 }
 
-section form input:focus{
+section form input[type=text]:focus{
   border-right:10px solid #2d7047;
   width: 70%;
 }
