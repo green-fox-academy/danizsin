@@ -1,11 +1,10 @@
 const express = require('express');
 const path = require('path');
-const bp = require('body-parser');
 
 const app = express();
 const PORT = 8080;
 
-app.use(bp());
+app.use(express.json());
 app.use('/assets', express.static('assets'));
 
 app.get('/', (req, res) => {
@@ -27,10 +26,12 @@ app.get('/doubling', (req, res) => {
 
 app.get('/greeter', (req, res) => {
   const { name, title } = req.query;
-  if (name) {
+  if (name && title) {
     res.json({ 'welcome_message': `Oh, hi there ${name}, my dear ${title}!` });
+  } else if (name) {
+    res.json({ 'welcome_message': `Oh, hi there ${name}, my dear student!` });
   } else if (title) {
-    res.json({ 'welcome_message': `Oh, hi there ${name}, my dear ${title}!` });
+    res.json({ 'welcome_message': `Oh, hi there petike, my dear ${title}!` });
   } else {
     res.json({ 'error': 'Please provide a name!' });
   }
