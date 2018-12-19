@@ -1,10 +1,9 @@
 const express = require('express');
-const bp = require('body-parser');
 
 const app = express();
 const PORT = 3000;
 
-app.use(bp());
+app.use(express.json());
 
 app.post('/arrays', (req, res) => {
   const { what, numbers } = req.body;
@@ -30,7 +29,7 @@ app.post('/arrays', (req, res) => {
       res.json({ 'result': `${doubled}` });
       break;
 
-    default: res.json({ 'error': 'Please provide what to do with the numbers!' })
+    default: res.json({ 'error': 'Please provide what to do with the numbers!' });
   }
 });
 
