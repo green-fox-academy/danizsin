@@ -1,0 +1,98 @@
+body {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: arial;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+section header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+section header h1{
+  margin-bottom: 50px;
+  font-size: 70px;
+  font-weight: bold;
+}
+
+section nav{
+margin-bottom: 50px;
+}
+
+section nav label{
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+select, input{
+  margin-right: 25px;
+  height:30px;
+  line-height: 30px;
+  font-size: 16px;
+  outline: none;
+}
+
+option{
+  height:30px;
+  line-height: 30px;
+  font-size: 16px;
+}
+
+section main{
+  width:1300px;
+}
+
+section main div{
+  width:100%;
+  heigth:100px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+section main div p{
+  width:18%;
+  height:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+section main div:nth-child(1) p{
+  font-size: 24px;
+  font-weight: bold;
+}
+
+section main div p:nth-child(3){
+  width:10%;
+}
+
+section main div p:nth-child(1){
+  width:34%;
+}
+
+section main div p:nth-child(5){
+  width:10%;
+}
