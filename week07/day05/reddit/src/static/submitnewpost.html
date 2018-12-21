@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet"  type="text/css" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/submitnewpost.css">
+  <link rel="shortcut icon" href="./assets/images/reddit-icon-green.png" type="image/x-icon">
+  <title>Reddit: submit new post</title>
+</head>
+
+<body>
+  <div class="mainview">
+    <header>
+      <a href="/">
+        <img src="./assets/images/reddit-icon-green.png" alt="icon" class="mainicon" title="Homepage">
+      </a>
+      <img src="./assets/images/merc.jpg" alt="headerimg">
+    </header>
+    <section>
+      <p></p>
+      <form action="submitnewpost.html">
+        <label for="newposttitle"><span>*</span>Post title</label>
+        <input type="text" id="newposttitle" name="newposttitle" placeholder="e.g.: i made a sandwich wooow"
+          autocomplete="off" required>
+        <label for="newposturl"><span>*</span>Post URL</label>
+        <input type="text" id="newposturl" name="newposturl" placeholder="e.g.: https://salalala.com" autocomplete="off"
+          required>
+        <input type="submit" value="submit" name="submitbutton">
+      </form>
+    </section>
+  </div>
+  <script src="./js/submitpost.js" type="text/javascript"></script>
+</body>
+
+</html>

@@ -106,6 +106,7 @@ section aside div.submitnewpostbtn{
   text-transform: uppercase;
   margin-bottom: 10px;
   cursor: pointer;
+  cursor: url(../images/reddit-icon-green.png), pointer;
   transition: 0.3s;
 }
 
@@ -210,17 +211,25 @@ section main article div.postdatacont{
   font-weight: bold;
 }
 
-section main article div.postdatacont p{
+section main article div.postdatacont p, section main article div.postdatacont > a{
   display: flex;
   height:15%;
   width:100%;
 }
 
-section main article div.postdatacont p:nth-child(1){
+section main article div.postdatacont > a{
   height:70%;
   overflow: hidden;
   padding:10px;
   font-size: 28px;
+  outline:none;
+  text-decoration: none;
+  color:#1ea853;
+  text-shadow:2px 2px #2d7047,
+              0px 0px #2d7047,
+              1px 0px #2d7047,
+              0px 1px #2d7047,
+              1px 1px #2d7047;
 }
 
 section main article div.postdatacont p a{

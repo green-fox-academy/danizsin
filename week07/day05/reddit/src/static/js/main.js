@@ -3,55 +3,19 @@
 const mainCont = document.querySelector('main');
 const submitpost = document.querySelector('.submitnewpostbtn');
 const redditicon = document.querySelector('.mainicon');
-const data = [
-  {
-    "id": 1, "title": "some actually really nice content to fill up space left by the cosmic air by me salalala",
-    "commentnum": "2", "timestamp": 1545040545, "score": 2103, "user": "Jancsika", "url": "apple.com", "upvoted": false, "downvoted": false
-  },
-  {
-    "id": 2, "title": "some actually really nice content to fill up space left by the cosmic air",
-    "commentnum": "10", "timestamp": 1544872845, "score": 6344, "user": "Karcsika", "url": "android.com", "upvoted": false, "downvoted": false
-  },
-  {
-    "id": 3, "title": "some actually really nice content to fill up space left by the cosmic air nihaha",
-    "commentnum": "1598", "timestamp": 1544858445, "score": 42343, "user": "Jampika", "url": "gmail.com", "upvoted": false, "downvoted": false
-  },
-  {
-    "id": 4, "title": "some actually really nice content to fill up space left by the cosmic air mihahaha",
-    "commentnum": "435", "timestamp": 1544772045, "score": 321, "user": "Tibike", "url": "twitter.com", "upvoted": true, "downvoted": false
-  },
-  {
-    "id": 5, "title": "some actually really nice content to fill up space left by the cosmic air",
-    "commentnum": "18", "timestamp": 1544599245, "score": 7321, "user": "Pistike", "url": "oracle.com", "upvoted": false, "downvoted": false
-  },
-  {
-    "id": 6, "title": "some actually really nice content to fill up space left by the cosmic air",
-    "commentnum": "138", "timestamp": 1544167245, "score": 9532, "user": "Sanyika", "url": "instagram.com", "upvoted": false, "downvoted": false
-  },
-  {
-    "id": 7, "title": "some actually really nice content to fill up space left by the cosmic air lalala",
-    "commentnum": "5654", "timestamp": 1543216845, "score": 100546, "user": "Esztike", "url": "9gag.com", "upvoted": false, "downvoted": true
-  },
-  {
-    "id": 8, "title": "some actually really nice content to fill up space left by the cosmic air lalala",
-    "commentnum": "46", "timestamp": 1542180045, "score": 344, "user": "Paprika", "url": "giphy.com", "upvoted": false, "downvoted": false
-  },
-  {
-    "id": 9, "title": "some actually really nice content to fill up space left by the cosmic air lalala",
-    "commentnum": "34", "timestamp": 1536906045, "score": 98, "user": "Szilvike", "url": "facebook.com", "upvoted": true, "downvoted": false
-  },
-  {
-    "id": 10, "title": "some actually really nice content to fill up space left by the cosmic air lalala",
-    "commentnum": "4", "timestamp": 1505370045, "score": 3, "user": "Napocska", "url": "google.com", "upvoted": false, "downvoted": false
-  },
-  {
-    "id": 11, "title": "some actually really nice content to fill up space left by the cosmic air lalala",
-    "commentnum": "345", "timestamp": 1252909245, "score": 45654, "user": "Napsugaracska", "url": "yahoo.com", "upvoted": false, "downvoted": false
-  }
-];
 
-window.onload = () => {
-  data.sort((a, b) => { return b.score - a.score });
+const createHttpRequest = (method, url, callback) => {
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    if (xhr.status === 200 && xhr.readyState === XMLHttpRequest.DONE) {
+      callback(JSON.parse(xhr.responseText));
+    }
+  }
+  xhr.open(method, url);
+  xhr.send();
+}
+
+const listPosts = (data) => {
   let counter = 0;
   const loader = setInterval(() => {
     createPosts(data[counter]);
@@ -60,11 +24,23 @@ window.onload = () => {
       clearInterval(loader);
     }
   }, 200);
+
 }
 
-submitpost.addEventListener('click', () => {
-  document.location.replace('submitnewpost.html');
-});
+const upVotePost = (id) => {
+  const upvoteXHR = new XMLHttpRequest();
+  upvoteXHR.onreadystatechange = () => {
+    if (upvoteXHR.status === 200 && upvoteXHR.readyState === XMLHttpRequest.DONE) {
+      if ((JSON.parse(upvoteXHR.responseText)).answer === "upvoted") {
+        
+      };
+    }
+  }
+  upvoteXHR.open('POST', '/upvote');
+  upvoteXHR.send();
+}
+
+
 
 const createPosts = (post) => {
 
@@ -73,13 +49,13 @@ const createPosts = (post) => {
   const rateCont = document.createElement('div');
   rateCont.classList.add('ratecont');
 
-  // POST UP AND DOWNVOTE
+  // POST UP- AND DOWNVOTE
   const upArrow = document.createElement('i');
   upArrow.classList.add('fas');
   upArrow.classList.add('fa-angle-double-up');
   upArrow.setAttribute('title', 'upvote post');
   upArrow.setAttribute('data-postid', post.id);
-  if (post.upvoted) {
+  if (post.voted == '1') {
     upArrow.classList.add('votedarrow');
   }
 
@@ -88,10 +64,11 @@ const createPosts = (post) => {
   downArrow.classList.add('fa-angle-double-down');
   downArrow.setAttribute('title', 'downvote post');
   downArrow.setAttribute('data-postid', post.id);
-  if (post.downvoted) {
+  if (post.voted == '-1') {
     downArrow.classList.add('votedarrow');
   }
 
+  //EVENT LISTENER TO THE VOTING BUTTONS
   rateCont.addEventListener('click', (event) => {
     switch (event.target) {
       case upArrow:
@@ -99,16 +76,14 @@ const createPosts = (post) => {
         if (rateCont.lastElementChild.classList.contains('votedarrow')) {
           rateCont.lastElementChild.classList.remove('votedarrow');
         }
-        data[event.target.getAttribute('data-postid')].upvoted = true;
-        data[event.target.getAttribute('data-postid')].downvoted = false;
+        upVotePost(event.target.getAttribute('data-postid'));
         break;
       case downArrow:
         event.target.classList.add('votedarrow');
         if (rateCont.firstElementChild.classList.contains('votedarrow')) {
           rateCont.firstElementChild.classList.remove('votedarrow');
         }
-        data[event.target.getAttribute('data-postid')].upvoted = false;
-        data[event.target.getAttribute('data-postid')].downvoted = true;
+        // downVotePost(event.target.getAttribute('data-postid'));
         break;
     }
   });
@@ -125,9 +100,11 @@ const createPosts = (post) => {
   postdataCont.classList.add('postdatacont');
 
   // POST TITLE
-  const title = document.createElement('p');
+  const title = document.createElement('a');
   title.classList.add('titlecont');
   title.innerText = post.title;
+  title.setAttribute('href', post.url);
+  title.setAttribute('target', '_blank');
 
   // POST SUBMIT DATE AND USER NAME
   const whenAndWho = document.createElement('p');
@@ -155,8 +132,10 @@ const createPosts = (post) => {
   const postedAgoWeeks = Math.floor((datenow - datefrom) / secsToWeeks);
   const postedAgoMonths = Math.floor((datenow - datefrom) / secsToMonths);
   const postedAgoYears = Math.floor((datenow - datefrom) / secsToYears);
+  //CONVERTING TIMESTAMP NUMBER INTO A READABLE DATE(EN-US MEANS ONLY THAT NUMBERS ARE SEPARATED WITH SLASHES LIKE: 11/12/2018)
   const submitdate = new Date(datefrom * 1000).toLocaleDateString('en-US');
 
+  //PRINTING OUT THE DATE OF SUBMITTING AND THE AMOUNT OF TIME PASSED SINCE SUBMITTING
   if (postedAgoYears >= 1) {
     dateofsubmit.innerHTML = `submitted on ${submitdate}, <strong>${postedAgoYears}</strong> years ago by`;
   } else if (postedAgoMonths >= 1) {
@@ -187,7 +166,7 @@ const createPosts = (post) => {
   comments.innerText = `${post.commentnum} comments`;
   const modifypost = document.createElement('a');
   modifypost.innerText = 'modify';
-  modifypost.setAttribute('href', `modifypost.html?post=${post.id}&title=${post.title}&posturl=${post.url}`);
+  modifypost.setAttribute('href', `./static/modifypost.html?post=${post.id}&title=${post.title}&posturl=${post.url}`);
   const removepost = document.createElement('a');
   removepost.innerText = 'remove';
   actions.appendChild(comments);
@@ -203,3 +182,9 @@ const createPosts = (post) => {
 
   mainCont.appendChild(article);
 }
+
+submitpost.addEventListener('click', () => {
+  document.location.replace('./static/submitnewpost.html');
+});
+
+createHttpRequest('GET', '/posts', listPosts);
