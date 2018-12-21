@@ -66,11 +66,6 @@ app.post('/filter', function (req, res) {
   const { categ_name, pub_name, price_range } = req.body;
   let sql = `SELECT book_mast.book_name, author.aut_name, category.cate_descrip, publisher.pub_name, book_mast.book_price FROM publisher, book_mast, category, author WHERE book_mast.aut_id=author.aut_id AND book_mast.pub_id=publisher.pub_id AND book_mast.cate_id=category.cate_id`;
 
-  console.log(categ_name);
-  console.log(pub_name);
-  console.log(price_range);
-  
-
   if (categ_name && categ_name != '' && categ_name != undefined) {
     if (categ_name != 'all') {
       sql += ` AND cate_descrip = '${categ_name}'`;
