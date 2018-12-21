@@ -63,25 +63,33 @@ app.get('/publisherselect', function (req, res) {
 });
 
 app.post('/filter', function (req, res) {
-  const { categ, publisher, pricerange } = req.body;
-  let queries = [];
-  let sql = `SELECT book_mast.book_name, author.aut_name, category.cate_descrip, publisher.pub_name, book_mast.book_price FROM ((book_mast INNER JOIN author ON book_mast.aut_id=author.aut_id) INNER JOIN publisher ON book_mast.pub_id=publisher.pub_id) INNER JOIN category ON book_mast.cate_id=category.cate_id WHERE `;
+  const { categ_name, pub_name, price_range } = req.body;
+  let sql = `SELECT book_mast.book_name, author.aut_name, category.cate_descrip, publisher.pub_name, book_mast.book_price FROM publisher, book_mast, category, author WHERE book_mast.aut_id=author.aut_id AND book_mast.pub_id=publisher.pub_id AND book_mast.cate_id=category.cate_id`;
 
-  if (categ && categ != '' && categ != undefined) {
-    
+  console.log(categ_name);
+  console.log(pub_name);
+  console.log(price_range);
+  
+
+  if (categ_name && categ_name != '' && categ_name != undefined) {
+    if (categ_name != 'all') {
+      sql += ` AND cate_descrip = '${categ_name}'`;
+    }
   }
 
-  if (publisher && publisher != '' && publisher != undefined) {
-    queries.push
+  if (pub_name && pub_name != '' && pub_name != undefined) {
+    if (pub_name != 'all') {
+      sql += ` AND pub_name = '${pub_name}'`;
+    }
   }
 
-  if (pricerange && pricerange != '' && pricerange != undefined) {
-
+  if (price_range && price_range != '' && price_range != undefined) {
+    sql += ` AND book_price <= ${price_range}`;
   }
 
   sql += ';';
 
-  conn.query(sql, [], (err, data) => {
+  conn.query(sql, (err, data) => {
     if (err) {
       console.log(err);
       return;

@@ -93,16 +93,19 @@ const listBooks = (data) => {
   });
 }
 
-form.addEventListener('change', (event) => {
+form.addEventListener('change', () => {
   const postHXR = new XMLHttpRequest();
   postHXR.onreadystatechange = () => {
     if (postHXR.status === 200 && postHXR.readyState === XMLHttpRequest.DONE) {
-      callback(JSON.parse(postHXR.responseText));
+      listBooks(JSON.parse(postHXR.responseText));
     }
   }
   postHXR.open('POST', '/filter');
+  postHXR.setRequestHeader('Content-Type', 'application/json');
   postHXR.send(JSON.stringify({
-
+    categ_name: categ.value,
+    pub_name: publish.value,
+    price_range: pricerange.value
   }));
 });
 
