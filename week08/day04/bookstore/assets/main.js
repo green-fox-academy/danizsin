@@ -20,6 +20,7 @@ const createHttpRequest = (url, method, callback) => {
   xhr.send();
 }
 
+// FILL UP THE SECOND SELECT ELEMENT WITH PUBLISHER NAMES FROM DATABASE
 const fillPublisherSelect = (data) => {
   const baseOption = document.createElement('option');
   baseOption.value = 'all';
@@ -33,6 +34,7 @@ const fillPublisherSelect = (data) => {
   });
 }
 
+// FILL UP THE FIRST SELECT ELEMENT WITH CATEGORY NAMES FROM DATABASE
 const fillCategSelect = (data) => {
   const baseOption = document.createElement('option');
   baseOption.value = 'all';
@@ -46,6 +48,7 @@ const fillCategSelect = (data) => {
   });
 }
 
+// EVERY TIME A CHANGE OCCURS IN THE FORM, THIS FUNCTION FIRES, LISTING THE BOOKS THAT MATCH THE SELECTION CRITERIA
 const listBooks = (data) => {
   while (main.firstChild) {
     main.removeChild(main.firstChild);
@@ -93,6 +96,7 @@ const listBooks = (data) => {
   });
 }
 
+// CHANGE EVENT LISTENER TO THE FORM, SENDING THE CURRENT VALUES OF THE SELECTION ELEMENTS AND THE RANGE INPUT FIELD
 form.addEventListener('change', () => {
   const postHXR = new XMLHttpRequest();
   postHXR.onreadystatechange = () => {
@@ -109,6 +113,7 @@ form.addEventListener('change', () => {
   }));
 });
 
+//WHEN THE PAGE FIRST LOADS, THESE 3 FUNCTIONS FIRE, LISTING THE BOOKS WITH NO FILTERING AND FILLING UP THE THE 2 SELECT ELEMENTS WITH OPTIONS FROM THE DATABASE
 createHttpRequest('/books', 'GET', listBooks);
 createHttpRequest('/publisherselect', 'GET', fillPublisherSelect);
 createHttpRequest('/categselect', 'GET', fillCategSelect);

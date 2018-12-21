@@ -62,28 +62,34 @@ app.get('/publisherselect', function (req, res) {
   });
 });
 
+//FILTERING ENDPOINT, TAKES ALL 3 VALUES FROM THE FORM, MAKING A BASIC SQL QUERY
 app.post('/filter', function (req, res) {
   const { categ_name, pub_name, price_range } = req.body;
   let sql = `SELECT book_mast.book_name, author.aut_name, category.cate_descrip, publisher.pub_name, book_mast.book_price FROM publisher, book_mast, category, author WHERE book_mast.aut_id=author.aut_id AND book_mast.pub_id=publisher.pub_id AND book_mast.cate_id=category.cate_id`;
 
+  //IF ONE OF THE CATEGORY NAMES ARE CHOSEN, AND THE VALUE IS NOT 'ALL', ADD ANOTHER -AND- CONDITION TO THE SQL QUERY
   if (categ_name && categ_name != '' && categ_name != undefined) {
     if (categ_name != 'all') {
       sql += ` AND cate_descrip = '${categ_name}'`;
     }
   }
 
+  //IF ONE OF THE PUBLISHER NAMES ARE CHOSEN, AND THE VALUE IS NOT 'ALL', ADD ANOTHER -AND- CONDITION TO THE SQL QUERY
   if (pub_name && pub_name != '' && pub_name != undefined) {
     if (pub_name != 'all') {
       sql += ` AND pub_name = '${pub_name}'`;
     }
   }
 
+  //IF THERE IS A PRICE RANGE VALUE ADD ANOTHER -AND- CONDITION TO THE SQL QUERY
   if (price_range && price_range != '' && price_range != undefined) {
     sql += ` AND book_price <= ${price_range}`;
   }
 
+  //ENDING THE SQL QUERY WITH A SEMICOLON
   sql += ';';
 
+  //SENDING BACK THE DATA THAT MATCH THE CRITERIA
   conn.query(sql, (err, data) => {
     if (err) {
       console.log(err);
