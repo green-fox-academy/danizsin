@@ -27,23 +27,111 @@ const listPosts = (data) => {
 
 }
 
-const upVotePost = (id) => {
-  const upvoteXHR = new XMLHttpRequest();
-  upvoteXHR.onreadystatechange = () => {
-    if (upvoteXHR.status === 200 && upvoteXHR.readyState === XMLHttpRequest.DONE) {
-      if ((JSON.parse(upvoteXHR.responseText)).answer === "upvoted") {
-        
+const upVotePost = (upvote) => {
+  const voteHXR = new XMLHttpRequest();
+  voteHXR.onreadystatechange = () => {
+    if (voteHXR.status === 200 && voteHXR.readyState === XMLHttpRequest.DONE) {
+      const data = JSON.parse(voteHXR.responseText);
+      const parent = upvote.parentNode;
+      if (data.answer === "success") {
+        if (!upvote.classList.contains('votedarrow')) {
+          upvote.classList.add('votedarrow');
+        }
+        if (parent.lastElementChild.classList.contains('votedarrow')) {
+          parent.lastElementChild.classList.remove('votedarrow');
+        }
+        parent.children[1].innerText = data.score;
       };
     }
   }
-  upvoteXHR.open('POST', '/upvote');
-  upvoteXHR.send();
+  voteHXR.open('PUT', '/upvote');
+  voteHXR.setRequestHeader('Content-type', 'application/json');
+  voteHXR.send(JSON.stringify({
+    postid: upvote.getAttribute('data-postid')
+  }));
 }
 
+const downVotePost = (downvote) => {
+  const voteHXR = new XMLHttpRequest();
+  voteHXR.onreadystatechange = () => {
+    if (voteHXR.status === 200 && voteHXR.readyState === XMLHttpRequest.DONE) {
+      const data = JSON.parse(voteHXR.responseText);
+      const parent = downvote.parentNode;
+      if (data.answer === "success") {
+        if (!downvote.classList.contains('votedarrow')) {
+          downvote.classList.add('votedarrow');
+        }
+        if (parent.firstElementChild.classList.contains('votedarrow')) {
+          parent.firstElementChild.classList.remove('votedarrow');
+        }
+        parent.children[1].innerText = data.score;
+      };
+    }
+  }
+  voteHXR.open('PUT', '/downvote');
+  voteHXR.setRequestHeader('Content-type', 'application/json');
+  voteHXR.send(JSON.stringify({
+    postid: downvote.getAttribute('data-postid')
+  }));
+}
 
+const voteButtonsSetup = (event) => {
+  if (event.target.classList.contains('upvotebtn')) {
+    upVotePost(event.target);
+  } else if (event.target.classList.contains('downvotebtn')) {
+    downVotePost(event.target);
+  }
+}
+
+const removePost = (event) => {
+  console.log(`post gonna be deleted: ${event.target.getAttribute('data-pstid')}`);
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    if (xhr.status === 200 && xhr.readyState === XMLHttpRequest.DONE) {
+      const data = JSON.parse(xhr.responseText);
+      if (data.answer == 'success') {
+        mainCont.removeChild(event.target.parentNode);
+      }
+    }
+  }
+  xhr.open('DELETE', '/deletepost');
+  xhr.setRequestHeader('Content-type', 'application/json');
+  xhr.send(JSON.stringify({
+    postid: event.target.getAttribute('data-pstid')
+  }));
+}
+
+const confirmRemoval = (event) => {
+  if (event.target.classList.contains('rmvpost')) {
+    const article = event.target.parentNode.parentNode.parentNode;
+    const articleContent = article.innerHTML;
+    while (article.firstChild) {
+      article.removeChild(article.firstChild);
+    }
+    const delQuestion = document.createElement('div');
+    delQuestion.innerText = `Are you sure you want to delete post No.${event.target.getAttribute('data-postid')}?`;
+    delQuestion.classList.add('delquestion');
+    const yesbtn = document.createElement('div');
+    yesbtn.classList.add('confirmyes');
+    yesbtn.innerText = 'yes';
+    yesbtn.setAttribute('data-pstid', event.target.getAttribute('data-postid'));
+    yesbtn.addEventListener('click', removePost);
+    const nobtn = document.createElement('div');
+    nobtn.classList.add('confirmno');
+    nobtn.innerText = 'no';
+    nobtn.addEventListener('click', () => {
+      while (article.firstChild) {
+        article.removeChild(article.firstChild);
+      }
+      article.innerHTML = articleContent;
+    });
+    article.appendChild(delQuestion);
+    article.appendChild(yesbtn);
+    article.appendChild(nobtn);
+  }
+}
 
 const createPosts = (post) => {
-
   const article = document.createElement('article');
 
   const rateCont = document.createElement('div');
@@ -53,6 +141,7 @@ const createPosts = (post) => {
   const upArrow = document.createElement('i');
   upArrow.classList.add('fas');
   upArrow.classList.add('fa-angle-double-up');
+  upArrow.classList.add('upvotebtn');
   upArrow.setAttribute('title', 'upvote post');
   upArrow.setAttribute('data-postid', post.id);
   if (post.voted == '1') {
@@ -62,31 +151,12 @@ const createPosts = (post) => {
   const downArrow = document.createElement('i');
   downArrow.classList.add('fas');
   downArrow.classList.add('fa-angle-double-down');
+  downArrow.classList.add('downvotebtn');
   downArrow.setAttribute('title', 'downvote post');
   downArrow.setAttribute('data-postid', post.id);
   if (post.voted == '-1') {
     downArrow.classList.add('votedarrow');
   }
-
-  //EVENT LISTENER TO THE VOTING BUTTONS
-  rateCont.addEventListener('click', (event) => {
-    switch (event.target) {
-      case upArrow:
-        event.target.classList.add('votedarrow');
-        if (rateCont.lastElementChild.classList.contains('votedarrow')) {
-          rateCont.lastElementChild.classList.remove('votedarrow');
-        }
-        upVotePost(event.target.getAttribute('data-postid'));
-        break;
-      case downArrow:
-        event.target.classList.add('votedarrow');
-        if (rateCont.firstElementChild.classList.contains('votedarrow')) {
-          rateCont.firstElementChild.classList.remove('votedarrow');
-        }
-        // downVotePost(event.target.getAttribute('data-postid'));
-        break;
-    }
-  });
 
   const rateAmount = document.createElement('p');
   rateAmount.innerText = post.score;
@@ -167,8 +237,11 @@ const createPosts = (post) => {
   const modifypost = document.createElement('a');
   modifypost.innerText = 'modify';
   modifypost.setAttribute('href', `./static/modifypost.html?post=${post.id}&title=${post.title}&posturl=${post.url}`);
-  const removepost = document.createElement('a');
+  const removepost = document.createElement('span');
   removepost.innerText = 'remove';
+  removepost.setAttribute('data-postid', post.id);
+  removepost.classList.add('rmvpost');
+
   actions.appendChild(comments);
   actions.appendChild(modifypost);
   actions.appendChild(removepost);
@@ -186,5 +259,10 @@ const createPosts = (post) => {
 submitpost.addEventListener('click', () => {
   document.location.replace('./static/submitnewpost.html');
 });
+
+mainCont.addEventListener('click', confirmRemoval);
+
+//EVENT LISTENER TO VOTING BUTTONS
+mainCont.addEventListener('click', voteButtonsSetup);
 
 createHttpRequest('GET', '/posts', listPosts);

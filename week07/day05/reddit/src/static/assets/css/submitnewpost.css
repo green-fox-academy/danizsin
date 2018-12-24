@@ -5,7 +5,7 @@ body {
   height: 100vh;
   font-family: 'Lato', sans-serif;
   display: flex;
-  background-color: white;
+  background-color: #36a15a;
   justify-content: center;
   overflow-x: hidden;
 }
