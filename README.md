@@ -13,3 +13,7 @@ WANDERER THE GAME|
 PICTURE GALLERY|REDDIT PROJECT|
 ---------------|--------------|
 [:sunny: insanely fancy image gallery :fire:](https://github.com/green-fox-academy/danizsin/tree/master/week06/day03)|[:zap: extraordinary reddit page :rainbow:](https://github.com/green-fox-academy/danizsin/tree/master/week07/day05/reddit)|
+
+ORIENTATION EXAMPLE EXAM|
+------------------------|
+[check out the answer and source codes here](https://github.com/danizsin/orientation-example-exam)
