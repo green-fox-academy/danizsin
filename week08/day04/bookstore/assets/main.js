@@ -3,11 +3,12 @@
 const main = document.querySelector('main');
 const categoryS = document.querySelector('#category');
 const publisherS = document.querySelector('#publisher');
+const priceRangeLabel = document.querySelector('label[for="pricerange"]');
 const form = document.forms.filters;
 const categ = form.category;
 const publish = form.publisher;
 const pricerange = form.pricerange;
-// const pricerange = document.querySelector('#pricerange');
+priceRangeLabel.innerText = `select books below ${pricerange.value} $`;
 
 const createHttpRequest = (url, method, callback) => {
   const xhr = new XMLHttpRequest();
@@ -111,6 +112,12 @@ form.addEventListener('change', () => {
     pub_name: publish.value,
     price_range: pricerange.value
   }));
+});
+
+form.addEventListener('input', (e) => {
+  if (e.target == pricerange) {
+    priceRangeLabel.innerText = `select books below ${pricerange.value} $`;
+  }
 });
 
 //WHEN THE PAGE FIRST LOADS, THESE 3 FUNCTIONS FIRE, LISTING THE BOOKS WITH NO FILTERING AND FILLING UP THE THE 2 SELECT ELEMENTS WITH OPTIONS FROM THE DATABASE
