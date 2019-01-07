@@ -33,7 +33,6 @@ app.get('/', (req, res) => {
       alcohols: alcoholList
     });
   }
-
 });
 
 // start express app on port 3000
