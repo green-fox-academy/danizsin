@@ -1,0 +1,46 @@
+html,body{
+  padding:0;
+  margin:0;
+}
+*{
+  box-sizing: border-box;
+}
+
+.container{
+  display:flex;
+  width:450px;
+  background-color: #CCCCCC;
+  height:80px;
+}
+
+.item{
+  min-width:100px;
+  height:100%;
+}
+
+.green{
+  background-color: green;
+  flex-grow: 1;
+}
+
+.yellow{
+  background-color: yellow;
+  flex-grow: 4;
+}
+
+.purple{
+  background-color: purple;
+  flex-grow: 1;
+}
+
+@media only screen and (max-width:450px){
+  .container{
+    flex-direction: column;
+    height:450px;
+    width:100%;
+  }
+
+  .item{
+    height: 80px;
+  }
+}
