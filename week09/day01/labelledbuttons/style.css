@@ -43,6 +43,7 @@ p{
 i{
   font-size: 18px;
   color:white;
+  transition: 0.6s;
 }
 
 section div:last-child label{
@@ -79,11 +80,11 @@ label::before{
   border-left:6px solid #1C242B; 
 }
 
-p[data-action="delete"] i{
+div:hover p[data-action="delete"] i{
   color:#F34541;
 }
 
-p[data-action="confirm"] i{
+div:hover p[data-action="confirm"] i{
   color:#38BA7D;
 }
 
