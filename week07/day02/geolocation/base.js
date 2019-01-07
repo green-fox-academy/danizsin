@@ -9,6 +9,9 @@ const createHttpRequest = (url, method, callback) => {
     }
   }
   xhr.open(method, url);
+  if (method == 'POST') {
+    xhr.setRequestHeader('Content-type', 'application/json');
+  }
   xhr.setRequestHeader('X-Mashape-Key', '1oiiIvMpKHmsh2ZC5nj6p8m1d14Gp1kjifkjsnTSPw9NlauyM5');
   xhr.send();
 }
