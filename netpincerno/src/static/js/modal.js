@@ -1,6 +1,6 @@
 'use strict';
 
-const setupLoginModal =  () => {
+const setupLoginModal = () => {
   const body = document.body;
   const modal = document.createElement('div');
   modal.classList.add('basemodal');
@@ -40,15 +40,12 @@ const setupLoginModal =  () => {
 }
 
 const fetchForms = () => {
-  let userid;
   let fullname;
   let username;
 
-  fetch(`/checksession`)
-    .then(resp => resp.json())
+  isSessionEstablished()
     .then(data => {
       if (data.answer == 'success') {
-        userid = data.userid;
         fullname = data.fullname;
         username = data.username;
         return fetch(`static/html/loggedin.html`);
