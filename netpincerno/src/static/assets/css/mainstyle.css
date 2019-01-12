@@ -197,3 +197,11 @@ a{
   border: 3px solid #D13C3C;
   opacity: 1;
 }
+
+.errordiv{
+  margin-bottom: 80px;
+  font-family: 'ZCOOL KuaiLe', cursive;
+  font-weight: bold;
+  color: #D13C3C;
+  font-size: 26px;
+}

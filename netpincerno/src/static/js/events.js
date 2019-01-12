@@ -5,47 +5,52 @@ const restaurants = document.querySelector('.restaurants');
 const login = document.querySelector('.login');
 const docbody = document.body;
 
-const formEvents = setTimeout(() => {
-  document.forms[1].addEventListener('input', (event) => {
-    event.stopImmediatePropagation();
-    validateField(event);
-  });
-
-  const signInBtn = document.querySelector('.signinbtn');
-  signInBtn.addEventListener('click', validateUserLogin);
-
-}, 200);
-
 window.addEventListener('click', (event) => {
   const trgt = event.target;
 
+  //REMOVE MODAL
   if (document.querySelector('.basemodal') && !trgt.classList.contains('modalelem')) {
     removeLoginModal();
   }
 
+  //SHOWING MODAL
+  if (trgt.classList.contains('login')) {
+    showLoginModal();
+  }
+
+  //SWITCH BETWEEN LOGIN AND REGISTER
   if (trgt.classList.contains('modaltitle')) {
     trgt.parentElement.childNodes.forEach(e => e.classList.remove('activetitle'));
     trgt.classList.add('activetitle');
   }
 
-  if (trgt.classList.contains('login')) {
-    showLoginModal();
-  }
-
+  //REPOSITION FORMS
   if (trgt.classList.contains('regtitle')) {
     const loginform = document.querySelector('.loginform');
     const regform = document.querySelector('.regform');
-    loginform.classList.add('notactive');
+    const loggedInCont = document.querySelector('.loggedincont');
+    if (loginform) {
+      loginform.classList.add('notactive');
+    } else {
+      loggedInCont.classList.add('notactive');
+    }
     regform.classList.add('notactive');
   }
 
+  //REPOSITION FORMS
   if (trgt.classList.contains('logintitle')) {
     const loginform = document.querySelector('.loginform');
     const regform = document.querySelector('.regform');
-    loginform.classList.remove('notactive');
+    const loggedInCont = document.querySelector('.loggedincont');
+    if (loginform) {
+      loginform.classList.remove('notactive');
+    } else {
+      loggedInCont.classList.remove('notactive');
+    }
     regform.classList.remove('notactive');
   }
 
+  //LOADING FOODS OF A RESTAURANT TO MAINCONTENT
   if (trgt.classList.contains('restaurantcont')) {
     fetchRestaurantProducts(trgt.getAttribute('data-restid'));
     const restaurantLinks = document.querySelectorAll('.restaurantcont');
@@ -53,29 +58,41 @@ window.addEventListener('click', (event) => {
     trgt.classList.add('activerestaurant');
   }
 
+  //DROPDOWN ACTIVATE
   if (trgt.classList.contains('dropdownactivator')) {
     trgt.nextElementSibling.classList.add('activedropdown');
   }
 
+  //DROPDOWN DEACTIVATE
   if (!trgt.classList.contains('cartdropdown')) {
     const drop = document.querySelector('.cartmenu');
     drop.classList.remove('activedropdown');
   }
 
+  //DROPDOWN DEACTIVATE
   if (!trgt.classList.contains('accountdropdown')) {
     const drop = document.querySelector('.accountmenu');
     drop.classList.remove('activedropdown');
   }
 
+  //SIGN IN
   if (trgt.classList.contains('signinbtn')) {
     event.preventDefault();
+    validateUserLogin();
   }
 
+  //REGISTER
   if (trgt.classList.contains('regbtn')) {
     event.preventDefault();
     registrateUser();
   }
 
+  //DESTROY SESSION
+  if (trgt.classList.contains('logout')) {
+    destroyUserSession();
+  }
+
+  //ANIMATE CART ICON
   if (trgt.classList.contains('buttoncont') || trgt.classList.contains('fa-shopping-cart')) {
     if (trgt.classList.contains('buttoncont')) {
       trgt.firstChild.classList.add('animatecart');
@@ -91,20 +108,34 @@ window.addEventListener('click', (event) => {
   }
 });
 
-const validateUserLogin = async (event) => {
-  event.preventDefault();
-  const loginName = document.forms[0].elements.loginname;
-  const loginPwd = document.forms[0].elements.loginpwd;
-  const checkBox = document.forms[0].elements.remembercheck;
+window.addEventListener('keydown', (event) => {
+  if (event.keyCode == 13 && document.querySelector('.loginform')) {
+    event.preventDefault();
+    validateUserLogin();
+  }
+})
+
+
+const addRegFormValidationEventListener = () => {
+  const formEvents = setTimeout(() => {
+    const regform = document.querySelector('.regform');
+    regform.addEventListener('input', (event) => {
+      event.stopImmediatePropagation();
+      validateField(event);
+    });
+  }, 500);
+}
+
+const validateUserLogin = (event) => {
+  const { loginname, loginpwd, remembercheck } = document.forms[0].elements;
   let rememberMe = 0;
-  if (checkBox.checked) {
+  if (remembercheck.checked) {
     rememberMe = 1;
   }
-  console.log(`${loginName.value} nevu ,${loginPwd.value} jelszoval,   ${rememberMe}`);
 
   const sendObj = {
-    loginName: loginName.value,
-    loginPwd: loginPwd.value,
+    loginName: loginname.value,
+    loginPwd: loginpwd.value,
     isChecked: rememberMe
   }
 
@@ -117,7 +148,15 @@ const validateUserLogin = async (event) => {
     body: JSON.stringify(sendObj)
   })
     .then(resp => resp.json())
-    .then(data => { console.log(data.answer) })
+    .then(data => {
+      if (data.answer == 'success') {
+        fetchForms();
+        addRegFormValidationEventListener();
+      } else {
+        const errorDiv = document.querySelector('.errordiv');
+        errorDiv.innerText = data.answer;
+      }
+    })
     .catch(err => console.log(err));
 }
 
@@ -126,6 +165,17 @@ const fetchRestaurantProducts = (id) => {
     .then(resp => resp.json())
     .then(data => {
       buildFoods(data);
+    })
+    .catch(err => console.log(err));
+}
+
+const destroyUserSession = () => {
+  fetch('/logout')
+    .then(resp => resp.json())
+    .then(data => {
+      if (data.answer == 'success') {
+        fetchForms();
+      }
     })
     .catch(err => console.log(err));
 }
@@ -182,7 +232,8 @@ const buildFoods = (data) => {
 }
 
 const registrateUser = () => {
-  const { fullname, username, email, password } = document.forms[1].elements;
+  const regForm = document.querySelector('.regform');
+  const { fullname, username, email, password } = regForm.elements;
   const textBefore = document.querySelector('.firstreglabel');
   fetch('/register', {
     method: 'POST',
@@ -216,9 +267,9 @@ const registrateUser = () => {
         successText.classList.add('warnmess');
       }
       if (!document.querySelector('.warnmess')) {
-        document.forms[1].insertBefore(successText, textBefore);
+        regForm.insertBefore(successText, textBefore);
         setTimeout(() => {
-          document.forms[1].removeChild(successText);
+          regForm.removeChild(successText);
         }, 3000);
       }
     })
@@ -259,3 +310,5 @@ const validInput = (target) => {
   target.classList.remove('valid');
   target.classList.add('valid');
 }
+
+addRegFormValidationEventListener();

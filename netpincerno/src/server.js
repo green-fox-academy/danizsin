@@ -40,6 +40,36 @@ app.get('/restaurants', (req, res) => {
   res.sendFile(path.join(__dirname, 'static/html/restaurants.html'));
 });
 
+app.get('/checksession', (req, res) => {
+  const { userid, fullname, username } = req.session;
+  if (userid, fullname, username) {
+    res.json({
+      answer: 'success',
+      userid,
+      fullname,
+      username
+    });
+  } else {
+    res.json({ answer: 'no such session' });
+  }
+});
+
+app.get('/logout', (req, res) => {
+  const { userid, fullname, username } = req.session;
+  if (userid, fullname, username) {
+    req.session.destroy((err) => {
+      if (err) {
+        console.log(err);
+        res.json({ answer: 'error destroying user session' });
+        return;
+      }
+      res.json({ answer: 'success' });
+    });
+  } else {
+    res.json({ answer: 'no such session' });
+  }
+});
+
 app.post('/login', (req, res) => {
   const { loginName, loginPwd } = req.body;
   if (loginName && loginPwd && loginPwd.trim() != '' && loginName.trim() != '') {
@@ -50,12 +80,9 @@ app.post('/login', (req, res) => {
         return;
       }
       if (data.length > 0) {
-        if (!req.session.userid) {
-          req.session.userid = data[0].id;
-        }
-        if (!req.session.username) {
-          req.session.username = data[0].username;
-        }
+        req.session.userid = data[0].id;
+        req.session.username = data[0].username;
+        req.session.fullname = data[0].fullname;
         res.status(200).json({
           answer: 'success',
           id: data[0].id,
@@ -126,14 +153,6 @@ app.get('/listrestaurant', (req, res) => {
       res.status(500).json({
         answer: 'error selecting from database'
       })
-      return;
-    }
-    if (req.session.userid) {
-      res.status(200).json({
-        list: data,
-        sessionusername: req.session.username,
-        sessionuserid: req.session.userid
-      });
       return;
     }
     res.status(200).json(data);
