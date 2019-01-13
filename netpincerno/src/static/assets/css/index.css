@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe');
+
+main{
+  flex-direction: column;
+}
+
+.mainimage{
+  background: url(../images/head.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 365px;
+}
+
+.maintitle, .orderfromus{
+  width: 100%;
+  font-family: 'ZCOOL KuaiLe', cursive;
+  height:200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.maintitle h1, .orderfromus a{
+  font-size: 130px;
+  color: #D13C3C;
+  font-weight: bold;
+  text-shadow:4px 4px rgba(0, 0, 0, 0.815),
+              1px 1px rgba(0, 0, 0, 0.815),
+              0px 1px rgba(0, 0, 0, 0.815),
+              1px 0px rgba(0, 0, 0, 0.815),
+              0px 0px rgba(0, 0, 0, 0.815);
+  user-select: none;
+}
+
+.orderfromus a{
+  font-size: 60px;
+  text-shadow:none;
+  cursor: pointer;
+  position: relative;
+}
+
+.orderfromus a:hover{
+  animation: ordertitle 0.5s linear infinite;
+}
+
+@keyframes ordertitle{
+  0%{
+    transform: translateX(0px);
+  }
+
+  25%{
+    transform: translateX(-10px);
+  }
+
+  75%{
+    transform: translateX(10px);
+  }
+
+  100%{
+    transform: translateX(0px);
+  }
+}

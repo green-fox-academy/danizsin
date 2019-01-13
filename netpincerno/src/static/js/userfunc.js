@@ -25,6 +25,7 @@ const validateUserLogin = (event) => {
     .then(data => {
       if (data.answer == 'success') {
         fetchForms();
+        setupAccountMenu();
         addRegFormValidationEventListener();
       } else {
         const errorDiv = document.querySelector('.errordiv');
@@ -82,6 +83,7 @@ const destroyUserSession = () => {
     .then(data => {
       if (data.answer == 'success') {
         fetchForms();
+        setupAccountMenu();
       }
     })
     .catch(err => console.log(err));

@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
   <link rel="shortcut icon" href="./static/assets/images/icons/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="./static/assets/css/mainstyle.css">
+  <link rel="stylesheet" type="text/css" href="./static/assets/css/index.css">
   <link rel="stylesheet" type="text/css" href="./static/assets/css/scrollbar.css">
   <link rel="stylesheet" type="text/css" href="./static/assets/css/modal.css">
   <title>Netpincérnő</title>
@@ -23,28 +24,36 @@
         <div class="navmenu restaurants"><a href="/restaurants">Restaurants</a></div>
         <div class="navmenu login">Sign in</div>
         <div class="navmenu account dropdownactivator accountdropdown">Account</div>
-        <ul class="dropdown accountmenu accountdropdown">
-          <li class="manageaccount">Manage Account</li>
-          <li class="manageaccount logout">Logout</li>
-        </ul>
+        <div class="dropdown accountmenu accountdropdown">
+          
+        </div>
         <div class="navmenu cart dropdownactivator cartdropdown">Cart</div>
-        <ul class="dropdown cartmenu cartdropdown">
+        <div class="dropdown cartmenu cartdropdown">
           <li>
             Your cart is empty
           </li>
-        </ul>
+        </div>
         <div class="navmenu searchbox">
           <input type="text" class="searchinput" placeholder="Search for anything...">
           <i class="fas fa-search"></i>
         </div>
       </nav>
     </header>
-    <main></main>
+    <main>
+      <div class="mainimage"></div>
+      <div class="maintitle">
+        <h1>Netpincérnő</h1>
+      </div>
+      <div class="orderfromus">
+        <a href="/restaurants">Rendelj nálunk!</a>
+      </div>
+    </main>
   </div>
   <script type="text/javascript" src="./static/js/sessionchecker.js"></script>
+  <script type="text/javascript" src="./static/js/menuhandler.js"></script>
   <script type="text/javascript" src="./static/js/modal.js"></script>
-  <script type="text/javascript" src="./static/js/userfunc.js"></script>
   <script type="text/javascript" src="./static/js/events.js"></script>
+  <script type="text/javascript" src="./static/js/userfunc.js"></script>
 </body>
 
 </html>

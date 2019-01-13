@@ -48,9 +48,9 @@ const fetchForms = () => {
       if (data.answer == 'success') {
         fullname = data.fullname;
         username = data.username;
-        return fetch(`static/html/loggedin.html`);
+        return fetch(`static/html/templates/loggedin.html`);
       } else {
-        return fetch(`static/html/bothforms.html`);
+        return fetch(`static/html/templates/bothforms.html`);
       }
     })
     .then(response => response.text())

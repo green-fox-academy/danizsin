@@ -14,7 +14,7 @@ window.addEventListener('click', (event) => {
   }
 
   //SHOWING MODAL
-  if (trgt.classList.contains('login')) {
+  if (trgt.classList.contains('login') || trgt.classList.contains('pleasesignin')) {
     showLoginModal();
   }
 
@@ -81,15 +81,15 @@ window.addEventListener('click', (event) => {
     validateUserLogin();
   }
 
+  //LOG OUT AND DESTROY SESSION
+  if (trgt.classList.contains('logout')) {
+    destroyUserSession();
+  }
+
   //REGISTER
   if (trgt.classList.contains('regbtn')) {
     event.preventDefault();
     registrateUser();
-  }
-
-  //DESTROY SESSION
-  if (trgt.classList.contains('logout')) {
-    destroyUserSession();
   }
 
   //ANIMATE CART ICON
