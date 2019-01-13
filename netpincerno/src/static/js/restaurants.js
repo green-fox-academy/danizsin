@@ -1,17 +1,24 @@
 'use strict';
 const aside = document.querySelector('.pickrestaurant');
 
+window.onload = () => {
+  fetchRestaurantProducts(1);
+}
+
 const loadRestaurants = () => {
   fetch(`/listrestaurant`)
     .then(resp => resp.json())
     .then(data => {
-        data.forEach(restaurant => {
-          const container = document.createElement('div');
-          container.innerText = restaurant.name;
-          container.classList.add('restaurantcont');
-          container.setAttribute('data-restid', restaurant.id);
-          aside.appendChild(container);
-        });
+      data.forEach(restaurant => {
+        const container = document.createElement('div');
+        container.innerText = restaurant.name;
+        if (restaurant.id == 1) {
+          container.classList.add('activerestaurant');
+        }
+        container.classList.add('restaurantcont');
+        container.setAttribute('data-restid', restaurant.id);
+        aside.appendChild(container);
+      });
     })
     .catch(err => console.log(err));
 }

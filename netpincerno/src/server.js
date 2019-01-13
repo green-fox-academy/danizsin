@@ -10,7 +10,7 @@ const PORT = 3000;
 
 app.use(session({
   secret: 'kiscica',
-  cookie: {}
+  cookie: { maxAge: 685765874 }
 }));
 
 app.use(express.json());
@@ -33,10 +33,16 @@ conn.connect((err) => {
 });
 
 app.get('/', (req, res) => {
+  if (!req.session.cart) {
+    req.session.cart = [];
+  }
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.get('/restaurants', (req, res) => {
+  if (!req.session.cart) {
+    req.session.cart = [];
+  }
   res.sendFile(path.join(__dirname, 'static/html/restaurants.html'));
 });
 

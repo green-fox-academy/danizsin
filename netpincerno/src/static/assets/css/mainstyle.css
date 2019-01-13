@@ -52,10 +52,11 @@ a{
   height: 60px;
   border-radius: 50%;
   margin-right: 10px;
+  transition: 1s;
 }
 
-.mainview header > a img:hover{
-  transform: rotate(180deg);
+.mainview header > a:hover > img{
+  transform: rotate(720deg);
 }
 
 .mainview header nav{
@@ -200,11 +201,11 @@ a{
 }
 
 .accountmenu{
-  left:36.5%;
+  left:43%;
 }
 
 .cartmenu{
-  left:53%;
+  left:61.3%;
 }
 
 .activedropdown{
